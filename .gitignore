@@ -8,7 +8,7 @@ WebRoot/WEB-INF/classes
 .mtj.tmp/
 
 # Package Files #
-*.jar
+# *.jar
 *.war
 *.ear
 
@@ -70,7 +70,7 @@ crashlytics-build.properties
 *.pydevproject
 .metadata
 .gradle
-bin/
+# bin/
 tmp/
 *.tmp
 *.bak
@@ -97,5 +97,3 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
-
-
