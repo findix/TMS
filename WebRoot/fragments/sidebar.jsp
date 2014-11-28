@@ -173,7 +173,7 @@
                             Disabled Menu Links</a>
                     </li>
                     <li>
-                        <a href="layout_blank_page.html">
+                        <a href="../blank_page.jsp">
                             Blank Page</a>
                     </li>
                     <li>

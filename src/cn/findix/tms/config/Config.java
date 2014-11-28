@@ -1,10 +1,8 @@
 package cn.findix.tms.config;
 
 import cn.findix.tms.controller.AuthController;
-import cn.findix.tms.model.Demo;
+import cn.findix.tms.model.*;
 import cn.findix.tms.controller.IndexController;
-import cn.findix.tms.model.Student;
-import cn.findix.tms.model.Teacher;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -53,6 +51,10 @@ public class Config extends JFinalConfig {
         //映射数据库Model
         arp.addMapping("Student","sid", Student.class);    // 映射 Student 表到 Student 模型
         arp.addMapping("Teacher","tid", Teacher.class);
+        arp.addMapping("Major","mid",Major.class);
+        arp.addMapping("Course","cid",Course.class);
+        arp.addMapping("Syllabus","cid",Syllabus.class);
+        arp.addMapping("TeachingSchedule","cid",TeachingSchedule.class);
     }
 
     /**
