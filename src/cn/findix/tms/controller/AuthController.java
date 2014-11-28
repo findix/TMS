@@ -18,17 +18,19 @@ public class AuthController extends Controller {
         } else {
             switch (id.length()) {
                 case 8:
-                    if (Student.dao.isExisted(id, password)) {
+//                    学生登录
+                    if (Student.DAO.isExisted(id, password)) {
                         setSessionAttr("id", id);
-                        setSessionAttr("name", Student.dao.findById(id).getStr("sname"));
+                        setSessionAttr("name", Student.DAO.findById(id).getStr("sname"));
 //                    redirect("/");
                         renderText("SUCCESS");
                     }
                     break;
                 case 10:
-                    if (Teacher.dao.isExisted(id, password)) {
+//                    教师登录
+                    if (Teacher.DAO.isExisted(id, password)) {
                         setSessionAttr("id", id);
-                        setSessionAttr("name", Student.dao.findById(id));
+                        setSessionAttr("name", Teacher.DAO.findById(id).getStr("tname"));
 //                    redirect("/");
                         renderText("SUCCESS");
                     }
@@ -54,11 +56,11 @@ public class AuthController extends Controller {
         } else {
             switch (id.length()) {
                 case 8:
-                    Student.dao.findById(id).set("password", password).update();
+                    Student.DAO.findById(id).set("password", password).update();
                     renderText("SUCCESS");
                     break;
                 case 10:
-                    Teacher.dao.findById(id).set("password", password).update();
+                    Teacher.DAO.findById(id).set("password", password).update();
                     renderText("SUCCESS");
                     break;
                 default:
