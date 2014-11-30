@@ -1,5 +1,6 @@
 ### Project Personal Setting
 WebRoot/WEB-INF/classes
+*.log
 
 ### Java template
 *.class
