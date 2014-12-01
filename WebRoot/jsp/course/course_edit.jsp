@@ -79,25 +79,8 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title">
-                模板页面
-                <small>这里放上页面说明</small>
+                教学大纲与教学进度表在线管理系统
             </h3>
-            <div class="page-bar">
-                <ul class="page-breadcrumb">
-                    <li>
-                        <i class="fa fa-home"></i>
-                        <a href="/">主页</a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                        <a href="#">模板页面</a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                        <a href="#">模板子页面</a>
-                    </li>
-                </ul>
-            </div>
             <!-- END PAGE HEADER-->
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
@@ -105,22 +88,33 @@ License: You must have a valid license purchased only from themeforest(the above
                     -----------------------------------------
                     --------------正文从这里开始---------------
                     -----------------------------------------
-                    <div class="table-responsive">
-               		 <table class="table table-hover">
-                    <tr>
-                        <th>课号</th>
-                        <th>课程名</th>
-                        <th>课程英文名</th>
-                        <th>学分</th>
-                        <th>专业</th>
-                        <th>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#addModal" onclick="add()">
-                                添加课程
-                            </button>
-                        </th>
-                    </tr>
-                </table>
-            </div>
+                    <form role="form">
+                        <div class="form-group">
+                            <label>课号</label> <input type="text" class="form-control">
+                            "
+                            placeholder="课号">
+                        </div>
+                        <div class="form-group">
+                            <label>课程名</label> <input type="text" class="form-control" placeholder="课程名">
+                        </div>
+                        <div class="form-group">
+                            <label>课程英文名</label> <input type="text" class="form-control" placeholder="课程英文名">
+                        </div>
+                        <div class="form-group">
+                            <label>学分</label> <input type="text" class="form-control" placeholder="学分">
+                        </div>
+                        <div class="form-group" >
+                            <label>专业</label>
+                            <select class="form-control" >
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-default">提交</button>
+                    </form>
             <!-- END PAGE CONTENT-->
         </div>
     </div>

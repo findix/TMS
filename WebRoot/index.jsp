@@ -80,25 +80,9 @@ License: You must have a valid license purchased only from themeforest(the above
       <!-- END STYLE CUSTOMIZER -->
       <!-- BEGIN PAGE HEADER-->
       <h3 class="page-title">
-        模板页面
-        <small>这里放上页面说明</small>
+          教学大纲与教学进度表在线管理系统
+
       </h3>
-      <div class="page-bar">
-        <ul class="page-breadcrumb">
-          <li>
-            <i class="fa fa-home"></i>
-            <a href="/">主页</a>
-            <i class="fa fa-angle-right"></i>
-          </li>
-          <li>
-            <a href="#">模板页面</a>
-            <i class="fa fa-angle-right"></i>
-          </li>
-          <li>
-            <a href="#">模板子页面</a>
-          </li>
-        </ul>
-      </div>
       <!-- END PAGE HEADER-->
       <!-- BEGIN PAGE CONTENT-->
       <div class="row">

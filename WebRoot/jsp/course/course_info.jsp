@@ -62,20 +62,20 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-header-fixed-mobile page-footer-fixed1">
 <!-- BEGIN HEADER -->
-<%@include file="../fragments/navbar.jsp" %>
+<%@include file="../../fragments/navbar.jsp" %>
 <!-- END HEADER -->
 <div class="clearfix">
 </div>
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
     <!-- BEGIN SIDEBAR -->
-    <%@include file="../fragments/sidebar.jsp" %>
+    <%@include file="../../fragments/sidebar.jsp" %>
     <!-- END SIDEBAR -->
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- BEGIN STYLE CUSTOMIZER -->
-            <%@include file="../fragments/theme-options.jsp" %>
+            <%@include file="../../fragments/theme-options.jsp" %>
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title">
@@ -105,20 +105,23 @@ License: You must have a valid license purchased only from themeforest(the above
                     -----------------------------------------
                     --------------正文从这里开始---------------
                     -----------------------------------------
+                    <div class="navbar-form"	 style="margin: 20px 0px 20px -15px">
+                        <div class="form-group">
+                            <input id="query" type="search" class="form-control" name="query"
+                                   placeholder="Search" value="">
+                        </div>
+                        <button id="search" class="btn btn-default">查询</button>
+                    </div>
                     <div class="table-responsive">
-               		 <table class="table table-hover">
-                    <tr>
-                        <th>课号</th>
-                        <th>课程名</th>
-                        <th>课程英文名</th>
-                        <th>学分</th>
-                        <th>专业</th>
-                        <th>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#addModal" onclick="add()">
-                                添加课程
-                            </button>
-                        </th>
-                    </tr>
+                        <table class="table table-hover" id="lesson">
+                            <tr>
+                                <th>课号</th>
+                                <th>课程名</th>
+                                <th>课程英文名</th>
+                                <th>学分</th>
+                                <th>专业</th>
+                            </tr>
+                        </table>
                 </div>
             </div>
             <!-- END PAGE CONTENT-->
@@ -128,7 +131,7 @@ License: You must have a valid license purchased only from themeforest(the above
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
-<%@include file="../fragments/footer.jsp" %>
+<%@include file="../../fragments/footer.jsp" %>
 <!-- END FOOTER -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->

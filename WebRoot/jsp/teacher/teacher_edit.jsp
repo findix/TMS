@@ -79,25 +79,8 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title">
-                模板页面
-                <small>这里放上页面说明</small>
+                教学大纲与教学进度表在线管理系统
             </h3>
-            <div class="page-bar">
-                <ul class="page-breadcrumb">
-                    <li>
-                        <i class="fa fa-home"></i>
-                        <a href="/">主页</a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                        <a href="#">模板页面</a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                        <a href="#">模板子页面</a>
-                    </li>
-                </ul>
-            </div>
             <!-- END PAGE HEADER-->
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
@@ -105,6 +88,34 @@ License: You must have a valid license purchased only from themeforest(the above
                     -----------------------------------------
                     --------------正文从这里开始---------------
                     -----------------------------------------
+                    <form role="form">
+                        <div class="form-group">
+                            <label>工号</label> <input type="text" class="form-control" placeholder="工号">
+                        </div>
+                        <div class="form-group">
+                            <label>姓名</label> <input type="text" class="form-control" placeholder="姓名">
+                        </div>
+                        <div class="form-group">
+                            <label>学院</label>
+                            <select class="form-control" >
+                                <option>计算机科学与技术学院</option>
+                                <option>电子与信息工程学院</option>
+                                <option>电气工程学院</option>
+                                <option>自动化工程学院</option>
+                                <option>外国语学院</option>
+                                <option>环境与化学工程学院</option>
+                                <option>能源与机械工程学院</option>
+                                <option>经济与管理学院</option>
+                                <option>国际交流学院</option>
+                                <option>数理学院</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>教授课程</label> <input type="text" class="form-control" placeholder="教授课程">
+                        </div>
+
+                        <button type="submit" class="btn btn-default">提交</button>
+                    </form>
                 </div>
             </div>
             <!-- END PAGE CONTENT-->
