@@ -58,6 +58,7 @@ public class Config extends JFinalConfig {
         arp.addMapping("Course", "cid", Course.class);
         arp.addMapping("Syllabus", "cid", Syllabus.class);
         arp.addMapping("TeachingSchedule", "cid", TeachingSchedule.class);
+        arp.addMapping("Department","did",Department.class);
     }
 
     /**
