@@ -99,35 +99,24 @@
 					</span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="tooltips" data-container="body" data-placement="right" data-html="true"
-                        data-original-title="Complete eCommerce Frontend Theme For Metronic Admin">
-                        <a href="http://xiujie.cn/preview/index.php?theme=metronic_frontend&page=shop-index.html"
-                           target="_blank">
-							<span class="title">
-							查看教学大纲 </span>
+                    <li>
+                        <a href="/syllabus/index">
+							查看教学大纲
                         </a>
                     </li>
-                    <li class="tooltips" data-container="body" data-placement="right" data-html="true"
-                        data-original-title="Complete Corporate Frontend Theme For Metronic Admin">
-                        <a href="http://xiujie.cn/preview/index.php?theme=metronic_frontend" target="_blank">
-							<span class="title">
-							分配教学大纲 </span>
+                    <li >
+                        <a href="/syllabus/distribution">
+							分配教学大纲
                         </a>
                     </li>
-                    <li class="tooltips" data-container="body" data-placement="right" data-html="true"
-                        data-original-title="Complete One Page Parallax Frontend Theme For Metronic Admin">
-                        <a href="http://xiujie.cn/preview/index.php?theme=metronic_frontend&page=onepage-index.html"
-                           target="_blank">
-							<span class="title">
-							填写教学大纲 </span>
+                    <li >
+                        <a href="/syllabus/write">
+							填写教学大纲
                         </a>
                     </li>
-                    <li class="tooltips" data-container="body" data-placement="right" data-html="true"
-                        data-original-title="Complete One Page Parallax Frontend Theme For Metronic Admin">
-                        <a href="http://xiujie.cn/preview/index.php?theme=metronic_frontend&page=onepage-index.html"
-                           target="_blank">
-							<span class="title">
-							审核教学大纲 </span>
+                    <li>
+                        <a href="/syllabus/check">
+							审核教学大纲
                         </a>
                     </li>
                 </ul>
@@ -141,19 +130,19 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="ui_general.html">
+                        <a href="/schedule/index">
                             查看教学进度表</a>
                     </li>
                     <li>
-                        <a href="ui_buttons.html">
+                        <a href="/schedule/distribution">
                            分配教学进度表</a>
                     </li>
                     <li>
-                        <a href="ui_icons.html">
+                        <a href="/schedule/write">
                             填写教学进度表</a>
                     </li>
                     <li>
-                        <a href="ui_colors.html">
+                        <a href="/schedule/check">
                             审核教学进度表</a>
                     </li>
 

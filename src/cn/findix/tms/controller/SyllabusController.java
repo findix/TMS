@@ -16,7 +16,7 @@ public class SyllabusController extends Controller {
     }
 
     public void distribution(){
-        render("syllabus_distribution");
+        render("syllabus_distribution。jsp");
     }
 
     public void write(){
