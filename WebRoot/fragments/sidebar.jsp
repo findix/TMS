@@ -41,25 +41,14 @@
             <li class="start active open">
                 <a href="javascript:;">
                     <i class="icon-home"></i>
-                    <span class="title">Dashboard</span>
-                    <span class="selected"></span>
+                    <span class="title">主页</span>
                     <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="active">
-                        <a href="index.html">
+                    <li>
+                        <a href="/">
                             <i class="icon-bar-chart"></i>
-                            Default Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="index_2.html">
-                            <i class="icon-bulb"></i>
-                            New Dashboard #1</a>
-                    </li>
-                    <li>
-                        <a href="index_3.html">
-                            <i class="icon-graph"></i>
-                            New Dashboard #2</a>
+                            主页</a>
                     </li>
                 </ul>
             </li>
