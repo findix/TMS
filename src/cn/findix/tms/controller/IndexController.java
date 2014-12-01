@@ -14,6 +14,24 @@ public class IndexController extends Controller {
 
     public void index() {
         if (getSessionAttr("id") != null) {
+            int userType = getSessionAttr("type");
+            switch (userType){
+                case 0:
+                    render("/jsp/character/student.jsp");
+                    break;
+                case 1:
+                    render("/jsp/character/admin.jsp");
+                    break;
+                case 2:
+                    render("/jsp/character/supervisor.jsp");
+                    break;
+                case 3:
+                    render("/jsp/character/dept_admin.jsp");
+                    break;
+                case 4:
+                    render("/jsp/character/teacher.jsp");
+                    break;
+            }
             render("index.jsp");
         } else {
             render("login.jsp");
@@ -45,7 +63,7 @@ public class IndexController extends Controller {
         getRequest().setAttribute("FileSaver", fs);
         fs.saveToFile(getRequest().getSession().getServletContext().getRealPath("doc/") + "/" + fs.getFileName());
         fs.showPage(300, 300);
-        setAttr("message","显示自定义保存结果。");
+        setAttr("message", "显示自定义保存结果。");
         render("savefile.jsp");
     }
 }
