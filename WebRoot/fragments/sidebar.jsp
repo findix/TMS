@@ -60,7 +60,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="CourseController">
+                        <a href="/course/index">
                             <i class="icon-home"></i>
                             查看课程信息</a>
                     </li>

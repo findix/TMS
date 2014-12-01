@@ -105,6 +105,24 @@ License: You must have a valid license purchased only from themeforest(the above
                     -----------------------------------------
                     --------------正文从这里开始---------------
                     -----------------------------------------
+                    <div class="navbar-form"	 style="margin: 20px 0px 20px -15px">
+                        <div class="form-group">
+                            <input id="query" type="search" class="form-control" name="query"
+                                   placeholder="Search" value="">
+                        </div>
+                        <button id="search" class="btn btn-default">查询</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="lesson">
+                            <tr>
+                                <th>工号</th>
+                                <th>姓名</th>
+                                <th>学院</th>
+                                <th>学分</th>
+                                <th>教授课程</th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!-- END PAGE CONTENT-->

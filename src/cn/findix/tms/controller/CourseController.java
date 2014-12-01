@@ -8,7 +8,7 @@ import com.jfinal.core.Controller;
 public class CourseController extends Controller {
 
             public void index(){
-                render("course_info.jsp");
+                redirect("jsp/course/course_info.jsp");
             }
 
 }
