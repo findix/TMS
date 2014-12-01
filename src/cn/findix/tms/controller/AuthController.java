@@ -9,8 +9,6 @@ import com.jfinal.core.Controller;
  */
 public class AuthController extends Controller {
 
-
-
     public void login() {
         String id = getPara("id");
         String password = getPara("password");

@@ -12,10 +12,17 @@ import javax.servlet.http.HttpSession;
  */
 public class IndexController extends Controller {
 
+    private boolean noAuth = true;
+
     public void index() {
+        if (noAuth) {
+            setSessionAttr("id", "20113092");
+            setSessionAttr("name", "测试");
+            setSessionAttr("type", 1);
+        }
         if (getSessionAttr("id") != null) {
             int userType = getSessionAttr("type");
-            switch (userType){
+            switch (userType) {
                 case 0:
                     render("/jsp/character/student.jsp");
                     break;
@@ -38,7 +45,7 @@ public class IndexController extends Controller {
         }
     }
 
-    public void temp(){
+    public void temp() {
         redirect("templates/admin/index.html");
     }
 

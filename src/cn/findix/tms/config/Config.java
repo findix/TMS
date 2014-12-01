@@ -33,7 +33,6 @@ public class Config extends JFinalConfig {
     public void configRoute(Routes me) {
         me.add("/", IndexController.class);    // 第三个参数为该Controller的视图存放路径
         me.add("/auth", AuthController.class, "/");            // 第三个参数省略时默认与第一个参数值相同
-        me.add("/char", CharacterController.class, "/jsp/character");
         me.add("/course", CourseController.class, "/jsp/course");
         me.add("/teacher", TeacherController.class,"/jsp/teacher");
         me.add("/syllabus",SyllabusController.class,"/jsp/syllabus");
