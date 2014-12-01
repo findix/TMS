@@ -38,6 +38,10 @@ public class IndexController extends Controller {
         }
     }
 
+    public void temp(){
+        redirect("templates/admin/index.html");
+    }
+
     //以下测试在线编辑office
     public void openword() {
         PageOfficeCtrl poCtrl1 = new PageOfficeCtrl(getRequest());
