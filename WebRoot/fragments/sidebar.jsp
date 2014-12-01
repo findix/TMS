@@ -60,12 +60,12 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="/course/index">
+                        <a href="/course/info">
                             <i class="icon-home"></i>
                             查看课程信息</a>
                     </li>
                     <li>
-                        <a href="ecommerce_orders.html">
+                        <a href="/course/edit">
                             <i class="icon-basket"></i>
                             增加课程信息</a>
                     </li>
@@ -80,11 +80,11 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="layout_horizontal_sidebar_menu.html">
+                        <a href="/teacher/info">
                            查看教师信息</a>
                     </li>
                     <li>
-                        <a href="index_horizontal_menu.html">
+                        <a href="/teacher/edit">
                             增加教师信息</a>
                     </li>
                 </ul>
