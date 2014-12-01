@@ -62,20 +62,20 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-header-fixed-mobile page-footer-fixed1">
 <!-- BEGIN HEADER -->
-<%@include file="fragments/navbar.jsp" %>
+<%@include file="../../fragments/navbar.jsp" %>
 <!-- END HEADER -->
 <div class="clearfix">
 </div>
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
     <!-- BEGIN SIDEBAR -->
-    <%@include file="fragments/sidebar.jsp" %>
+    <%@include file="../../fragments/sidebar.jsp" %>
     <!-- END SIDEBAR -->
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- BEGIN STYLE CUSTOMIZER -->
-            <%@include file="fragments/theme-options.jsp" %>
+            <%@include file="../../fragments/theme-options.jsp" %>
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title">
@@ -114,7 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
-<%@include file="fragments/footer.jsp" %>
+<%@include file="../../fragments/footer.jsp" %>
 <!-- END FOOTER -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->

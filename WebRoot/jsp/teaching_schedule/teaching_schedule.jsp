@@ -25,29 +25,29 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="assets/global/plugins/font-awesome/css/font-awesome.min.css"
+    <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css"
           rel="stylesheet" type="text/css"/>
-    <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+    <link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
           rel="stylesheet" type="text/css"/>
-    <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css"
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css"
           rel="stylesheet" type="text/css"/>
-    <link href="assets/global/plugins/uniform/css/uniform.default.css"
+    <link href="../assets/global/plugins/uniform/css/uniform.default.css"
           rel="stylesheet" type="text/css"/>
-    <link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
+    <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
           rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN THEME STYLES -->
-    <link href="assets/global/css/components.css" rel="stylesheet"
+    <link href="../assets/global/css/components.css" rel="stylesheet"
           type="text/css"/>
-    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/admin/layout/css/layout.css" rel="stylesheet"
+    <link href="../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/admin/layout/css/layout.css" rel="stylesheet"
           type="text/css"/>
-    <link id="style_color" href="assets/admin/layout/css/themes/default.css"
+    <link id="style_color" href="../assets/admin/layout/css/themes/default.css"
           rel="stylesheet" type="text/css"/>
-    <link href="assets/admin/layout/css/custom.css" rel="stylesheet"
+    <link href="../assets/admin/layout/css/custom.css" rel="stylesheet"
           type="text/css"/>
     <!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="../favicon.ico"/>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -62,20 +62,20 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-header-fixed-mobile page-footer-fixed1">
 <!-- BEGIN HEADER -->
-<%@include file="fragments/navbar.jsp" %>
+<%@include file="../../fragments/navbar.jsp" %>
 <!-- END HEADER -->
 <div class="clearfix">
 </div>
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
     <!-- BEGIN SIDEBAR -->
-    <%@include file="fragments/sidebar.jsp" %>
+    <%@include file="../../fragments/sidebar.jsp" %>
     <!-- END SIDEBAR -->
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- BEGIN STYLE CUSTOMIZER -->
-            <%@include file="fragments/theme-options.jsp" %>
+            <%@include file="../../fragments/theme-options.jsp" %>
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title">
@@ -114,7 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
-<%@include file="fragments/footer.jsp" %>
+<%@include file="../../fragments/footer.jsp" %>
 <!-- END FOOTER -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
