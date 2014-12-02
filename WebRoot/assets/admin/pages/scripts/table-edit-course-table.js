@@ -5,38 +5,75 @@ var TableEditable = function () {
         function restoreRow(oTable, nRow) {
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
-
-            for (var i = 0, iLen = jqTds.length; i < iLen; i++) {
-                oTable.fnUpdate(aData[i], nRow, i, false);
-            }
-
+            oTable.fnUpdate(aData[0].value, nRow, 0, false);
+            oTable.fnUpdate(aData[1].value, nRow, 1, false);
+            oTable.fnUpdate(aData[2].value, nRow, 2, false);
+            oTable.fnUpdate(aData[3].value, nRow, 3, false);
+            $("select", jqTds[4]).val(aData[4]);
+            $("select", jqTds[5]).val(aData[5]);
+            oTable.fnUpdate(aData[6], nRow, 6, false);
+            oTable.fnUpdate(aData[7], nRow, 7, false);
             oTable.fnDraw();
         }
 
         function editRow(oTable, nRow) {
+            var department={"上海电力学院":"00","计算机科学与技术学院":"01","电子与信息工程学院":"02","自动化工程学院":"03","外国语学院":"04","电气工程学院":"05","能源与机械工程学院":"06","环境与化学工程学院":"07","经济与管理学院":"08","国际交流学院":"09","数理学院":"10"};
+            var major={"软件工程":"001","信息安全":"002","计算机科学与技术":"003"};
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
             jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '">';
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
             jqTds[2].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[2] + '">';
             jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
-            jqTds[4].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[4] + '">';
-            jqTds[5].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[5] + '">';
+            jqTds[4].innerHTML = '<select name="course.did" class="form-control form-filter input-sm"> <option value="00">上海电力学院</option> <option value="01">计算机科学与技术学院</option> <option value="02">电子与信息工程学院</option> <option value="03">自动化工程学院</option> <option value="04">外国语学院</option> <option value="05">电气工程学院</option> <option value="06">能源与机械工程学院</option> <option value="07">环境与化学工程学院</option> <option value="08">经济与管理学院</option><option value="09">国际交流学院</option> <option value="10">数理学院</option> </select>';
+            jqTds[5].innerHTML = '<select name="course.mid" class="form-control form-filter input-sm"> <option value="1">软件工程</option> <option value="2">信息安全</option> <option value="3">计算机科学与技术</option></select>';
             jqTds[6].innerHTML = '<a class="edit" href="">Save</a>';
             jqTds[7].innerHTML = '<a class="cancel" href="">Cancel</a>';
+            $("select", jqTds[4]).val(aData[4] == "" ? "00" : department[(aData[4])]);
+            $("select", jqTds[5]).val(aData[5] == "" ? "001" : major[(aData[5])]);
         }
 
         function saveRow(oTable, nRow) {
+            var major={
+                "001":"软件工程",
+                "002":"信息安全",
+                "003":"计算机科学与技术"
+            };
+            var department = {
+                "00": "上海电力学院",
+                "01": "计算机科学与技术学院",
+                "02": "电子与信息工程学院",
+                "03": "自动化工程学院",
+                "04": "外国语学院",
+                "05": "电气工程学院",
+                "06": "能源与机械工程学院",
+                "07": "环境与化学工程学院",
+                "08": "经济与管理学院",
+                "09": "国际交流学院",
+                "10": "数理学院"
+            };
             var jqInputs = $('input', nRow);
+            var jqSelects = $('select', nRow);
             oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
             oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
             oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-            oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
-            oTable.fnUpdate(jqInputs[5].value, nRow, 5, false);
+            oTable.fnUpdate(department[jqSelects[1].value], nRow, 4, false);
+            oTable.fnUpdate(major[jqSelects[1].value], nRow, 5, false);
             oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 6, false);
             oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 7, false);
             oTable.fnDraw();
+            $.post("/course/saveAndAdd",
+                {
+                    "course.cid": jqInputs[0].value,
+                    "course.cname": jqInputs[1].value,
+                    "course.cenglish": jqInputs[2].value,
+                    "course.credit": jqInputs[3].value,
+                    "course.did": jqSelects[4].value,
+                    "course.mid": jqSelects[5].value
+                }, function (data, status) {
+                    //location.reload();
+                });
         }
 
         function cancelEditRow(oTable, nRow) {

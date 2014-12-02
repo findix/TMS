@@ -17,4 +17,18 @@ public class CourseController extends Controller {
         render("course_edit.jsp");
     }
 
+    public void saveAndAdd() {
+        if (Course.DAO.isExisted(getPara("course.cid"))) {
+            getModel(Course.class).update();
+            renderText("SUCCESS");
+        }
+        }
+
+
+    public void delete() {
+        getModel(Course.class).delete();
+        renderText("SUCCESS");
+    }
+
 }
+
