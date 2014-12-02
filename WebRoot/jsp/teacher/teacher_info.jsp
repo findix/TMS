@@ -99,63 +99,61 @@ License: You must have a valid license purchased only from themeforest(the above
                     <%---------------------------------------------%>
                     <%----------------正文从这里开始-----------------%>
                     <%---------------------------------------------%>
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <button id="sample_editable_1_new" class="btn green">
-                                            新增 <i class="fa fa-plus"></i>
-                                        </button>
-                                        <a href="upload" class="btn btn-default">
-                                            上传Excel
-                                        </a>
-                                    </div>
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <button id="sample_editable_1_new" class="btn green">
+                                        新增 <i class="fa fa-plus"></i>
+                                    </button>
+                                    <a href="upload" class="btn btn-default">
+                                        上传Excel
+                                    </a>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="btn-group pull-right">
-                                        <button class="btn dropdown-toggle" data-toggle="dropdown">
-                                            工具
-                                            <i
-                                                    class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li>
-                                                <a href="javascript:window.print()">打印</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group pull-right">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                        工具
+                                        <i
+                                                class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li>
+                                            <a href="javascript:window.print()">打印</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
-                            <div>
-                                <table class="table table-striped table-hover table-bordered dataTable no-footer"
-                                       id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
-                                    <thead>
+                    </div>
+                    <div id="sample_editable_1_wrapper" class="dataTables_wrapper no-footer">
+                        <div>
+                            <table class="table table-striped table-hover table-bordered dataTable no-footer"
+                                   id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
+                                <thead>
+                                <tr role="row">
+                                    <th>工号</th>
+                                    <th>姓名</th>
+                                    <th>权限</th>
+                                    <th>学院</th>
+                                    <th>编辑</th>
+                                    <th>删除</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="teacher" items="${teachers}">
                                     <tr role="row">
-                                        <th>工号</th>
-                                        <th>姓名</th>
-                                        <th>权限</th>
-                                        <th>学院</th>
-                                        <th>编辑</th>
-                                        <th>删除</th>
+                                        <td>${teacher.tid}</td>
+                                        <td>${teacher.tname}</td>
+                                        <td>${teacher.aname}</td>
+                                        <td>${teacher.dname}</td>
+                                        <td><a class="edit" href="javascript:;">编辑</a></td>
+                                        <td><a class="delete" href="javascript:;">删除</a></td>
                                     </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach var="teacher" items="${teachers}">
-                                        <tr role="row">
-                                            <td>${teacher.tid}</td>
-                                            <td>${teacher.tname}</td>
-                                            <td>${teacher.aname}</td>
-                                            <td>${teacher.dname}</td>
-                                            <td><a class="edit" href="javascript:;">编辑</a></td>
-                                            <td><a class="delete" href="javascript:;">删除</a></td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
+                                </c:forEach>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

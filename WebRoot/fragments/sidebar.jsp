@@ -100,7 +100,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="/syllabus/index">
+                        <a href="/syllabus/">
 							查看教学大纲
                         </a>
                     </li>
@@ -130,7 +130,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="/schedule/index">
+                        <a href="/schedule/">
                             查看教学进度表</a>
                     </li>
                     <li>
