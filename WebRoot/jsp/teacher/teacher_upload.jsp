@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>教学管理系统</title>
+    <title>教师信息上传 | 教学管理系统</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
@@ -35,7 +35,10 @@ License: You must have a valid license purchased only from themeforest(the above
           rel="stylesheet" type="text/css"/>
     <link href="/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
           rel="stylesheet" type="text/css"/>
-    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- END GLOBAL MANDATORY STYLES
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="../../assets/global/plugins/dropzone/css/dropzone.css" rel="stylesheet"/>
+    <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN THEME STYLES -->
     <link href="/assets/global/css/components.css" rel="stylesheet"
           type="text/css"/>
@@ -79,42 +82,28 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title">
-                教学大纲与教学进度表在线管理系统
+                教师信息上传
             </h3>
             <!-- END PAGE HEADER-->
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
                 <div class="col-md-12">
-                    -----------------------------------------
-                    --------------正文从这里开始---------------
-                    -----------------------------------------
-                    <form role="form">
-                        <div class="form-group">
-                            <label>工号</label> <input type="text" class="form-control" placeholder="工号">
-                        </div>
-                        <div class="form-group">
-                            <label>姓名</label> <input type="text" class="form-control" placeholder="姓名">
-                        </div>
-                        <div class="form-group">
-                            <label>学院</label>
-                            <select class="form-control" >
-                                <option>计算机科学与技术学院</option>
-                                <option>电子与信息工程学院</option>
-                                <option>电气工程学院</option>
-                                <option>自动化工程学院</option>
-                                <option>外国语学院</option>
-                                <option>环境与化学工程学院</option>
-                                <option>能源与机械工程学院</option>
-                                <option>经济与管理学院</option>
-                                <option>国际交流学院</option>
-                                <option>数理学院</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>教授课程</label> <input type="text" class="form-control" placeholder="教授课程">
-                        </div>
+                    <%---------------------------------------------%>
+                    <%----------------正文从这里开始-----------------%>
+                    <%---------------------------------------------%>
+                    <p>
+                        </span> <a class="btn btn-primary" href="downloadInfo">下载样例表格</a>
+                        </span> <a class="btn btn-default" href="info">返回</a>
+                    </p>
 
-                        <button type="submit" class="btn btn-default">提交</button>
+
+                    <p>
+						<span class="label label-danger">
+						NOTE: </span>
+                        &nbsp; 推荐使用最新版 Chrome, Firefox, Safari, Opera 以及 Internet Explorer 11.
+                    </p>
+
+                    <form action="uploadFile" class="dropzone" id="my-dropzone" enctype="multipart/form-data">
                     </form>
                 </div>
             </div>
@@ -155,20 +144,26 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
         type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="/assets/global/plugins/dropzone/dropzone.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="/assets/global/scripts/metronic.js" type="text/javascript"></script>
-<script src="/assets/admin/layout/scripts/layout.js"
-        type="text/javascript"></script>
-<script src="/assets/admin/layout/scripts/quick-sidebar.js"
-        type="text/javascript"></script>
+<script src="/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="/assets/admin/pages/scripts/form-dropzone.js"></script>
 <script>
     jQuery(document).ready(function () {
+        // initiate layout and plugins
         Metronic.init(); // init metronic core components
         Layout.init(); // init current layout
         QuickSidebar.init(); // init quick sidebar
         Demo.init(); // init demo features
+        FormDropzone.init();
     });
 </script>
+<!-- END PAGE LEVEL SCRIPTS -->
 <!-- END JAVASCRIPTS -->
 </body>
 

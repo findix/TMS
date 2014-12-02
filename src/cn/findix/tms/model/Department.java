@@ -1,6 +1,6 @@
 package cn.findix.tms.model;
 
-import com.jfinal.plugin.activerecord.Model;
+import cn.dreampie.web.model.Model;
 
 /**
  * Created by longlong on 2014/12/1.

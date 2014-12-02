@@ -1,7 +1,12 @@
 package cn.findix.tms.controller;
 
 import cn.findix.tms.model.Teacher;
+import cn.findix.tms.server.ExcelPOI;
 import com.jfinal.core.Controller;
+import com.jfinal.kit.PathKit;
+import com.jfinal.upload.UploadFile;
+
+import java.io.File;
 
 /**
  * Created by Sean on 2014/12/1.
@@ -9,12 +14,12 @@ import com.jfinal.core.Controller;
 public class TeacherController extends Controller {
 
     public void info() {
-        setAttr("teachers", Teacher.DAO.findAll());
+        setAttr("teachers", Teacher.DAO.findMyAll());
         render("teacher_info.jsp");
     }
 
-    public void edit() {
-        render("teacher_edit.jsp");
+    public void upload() {
+        render("teacher_upload.jsp");
     }
 
     /**
@@ -33,5 +38,17 @@ public class TeacherController extends Controller {
     public void delete() {
         getModel(Teacher.class).delete();
         renderText("SUCCESS");
+    }
+
+    public void uploadFile() {
+        UploadFile uploadFile = getFile();
+        File file = uploadFile.getFile();
+        ExcelPOI.readTeacherContent(file);
+        renderText("SUCCESS");
+    }
+
+    public void downloadInfo() {
+        File downloadFile = new File(PathKit.getWebRootPath() + "/doc/teacher_info.xls");
+        renderFile(downloadFile);
     }
 }

@@ -84,8 +84,8 @@
                            查看教师信息</a>
                     </li>
                     <li>
-                        <a href="/teacher/edit">
-                            增加教师信息</a>
+                        <a href="/teacher/upload">
+                            上传教师信息</a>
                     </li>
                 </ul>
             </li>
