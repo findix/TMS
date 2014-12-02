@@ -1,5 +1,6 @@
 package cn.findix.tms.controller;
 
+import cn.findix.tms.model.Course;
 import com.jfinal.core.Controller;
 
 /**
@@ -8,6 +9,7 @@ import com.jfinal.core.Controller;
 public class CourseController extends Controller {
 
     public void info() {
+        setAttr("courses", Course.DAO.findAll());
         render("course_info.jsp");
     }
 
