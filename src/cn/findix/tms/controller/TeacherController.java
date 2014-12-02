@@ -1,8 +1,12 @@
 package cn.findix.tms.controller;
 
 import cn.findix.tms.model.Teacher;
+import cn.findix.tms.server.ExcelPOI;
 import com.jfinal.core.Controller;
+import com.jfinal.kit.PathKit;
 import com.jfinal.upload.UploadFile;
+
+import java.io.File;
 
 /**
  * Created by Sean on 2014/12/1.
@@ -36,7 +40,15 @@ public class TeacherController extends Controller {
         renderText("SUCCESS");
     }
 
-    public void uploadFile(){
-        UploadFile uploadFile = getFile("FILE");
+    public void uploadFile() {
+        UploadFile uploadFile = getFile();
+        File file = uploadFile.getFile();
+        ExcelPOI.readTeacherContent(file);
+        renderText("SUCCESS");
+    }
+
+    public void downloadInfo() {
+        File downloadFile = new File(PathKit.getWebRootPath() + "/doc/teacher_info.xls");
+        renderFile(downloadFile);
     }
 }

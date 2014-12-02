@@ -1,5 +1,6 @@
 package cn.findix.tms.config;
 
+import cn.dreampie.log.Slf4jLogFactory;
 import cn.findix.tms.controller.*;
 import cn.findix.tms.model.*;
 import com.jfinal.config.Constants;
@@ -8,6 +9,7 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
+import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.plugin.druid.DruidPlugin;

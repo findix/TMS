@@ -92,12 +92,18 @@ License: You must have a valid license purchased only from themeforest(the above
                     <%----------------正文从这里开始-----------------%>
                     <%---------------------------------------------%>
                     <p>
+                        </span> <a class="btn btn-primary" href="downloadInfo">下载样例表格</a>
+                        </span> <a class="btn btn-default" href="info">返回</a>
+                    </p>
+
+
+                    <p>
 						<span class="label label-danger">
 						NOTE: </span>
                         &nbsp; 推荐使用最新版 Chrome, Firefox, Safari, Opera 以及 Internet Explorer 11.
                     </p>
 
-                    <form action="/teacher/uploadFile" class="dropzone" id="my-dropzone" enctype="multipart/form-data">
+                    <form action="uploadFile" class="dropzone" id="my-dropzone" enctype="multipart/form-data">
                     </form>
                 </div>
             </div>

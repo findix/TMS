@@ -1,6 +1,7 @@
 ### Project Personal Setting
 WebRoot/WEB-INF/classes
 *.log
+webRoot/upload/
 
 ### Java template
 *.class

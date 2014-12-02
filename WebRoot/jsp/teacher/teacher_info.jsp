@@ -107,6 +107,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <button id="sample_editable_1_new" class="btn green">
                                             新增 <i class="fa fa-plus"></i>
                                         </button>
+                                        <a href="upload" class="btn btn-default">
+                                            上传Excel
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
