@@ -1,5 +1,6 @@
 package cn.findix.tms.controller;
 
+import cn.findix.tms.model.Course;
 import com.jfinal.core.Controller;
 
 /**
@@ -8,6 +9,7 @@ import com.jfinal.core.Controller;
 public class SyllabusController extends Controller {
 
     public void index(){
+        setAttr("courses", Course.DAO.findAll());
         render("syllabus.jsp");
     }
 
@@ -16,10 +18,18 @@ public class SyllabusController extends Controller {
     }
 
     public void distribution(){
-        render("syllabus_distribution。jsp");
+        render("syllabus_distribution.jsp");
     }
 
     public void write(){
         render("syllabus_write.jsp");
     }
+
+    public void edit(){
+
+    }
+
+    public void view(){}
+
+    public void download(){}
 }
