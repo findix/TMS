@@ -142,10 +142,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <tbody>
                                     <c:forEach var="teacher" items="${teachers}">
                                         <tr role="row">
-                                            <td>${teacher.get("tid")}</td>
-                                            <td>${teacher.get("tname")}</td>
-                                            <td>${teacher.get("aname")}</td>
-                                            <td>${teacher.get("dname")}</td>
+                                            <td>${teacher.tid}</td>
+                                            <td>${teacher.tname}</td>
+                                            <td>${teacher.aname}</td>
+                                            <td>${teacher.dname}</td>
                                             <td><a class="edit" href="javascript:;">编辑</a></td>
                                             <td><a class="delete" href="javascript:;">删除</a></td>
                                         </tr>

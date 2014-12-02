@@ -10,6 +10,7 @@ import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
+import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.render.ViewType;
 
 /**
@@ -59,6 +60,7 @@ public class Config extends JFinalConfig {
         arp.addMapping("Syllabus", "cid", Syllabus.class);
         arp.addMapping("TeachingSchedule", "cid", TeachingSchedule.class);
         arp.addMapping("Department","did",Department.class);
+
     }
 
     /**
