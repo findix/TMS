@@ -105,26 +105,20 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <button id="sample_editable_1_new" class="btn green">
-                                            Add New <i class="fa fa-plus"></i>
+                                            新增 <i class="fa fa-plus"></i>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="btn-group pull-right">
                                         <button class="btn dropdown-toggle" data-toggle="dropdown">
-                                            Tools
+                                            工具
                                             <i
                                                     class="fa fa-angle-down"></i>
                                         </button>
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a href="#">Print</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Save as PDF</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Export to Excel</a>
+                                                <a href="javascript:window.print()">打印</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -137,38 +131,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                        id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
                                     <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1"
-                                            rowspan="1" colspan="1" aria-sort="ascending" aria-label="
-                                     Username
-                                : activate to sort column ascending" style="width: 284px;">工号
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-                                     Full Name
-                                : activate to sort column ascending" style="width: 361px;">姓名
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-                                     Points
-                                : activate to sort column ascending" style="width: 202px;">权限
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-                                     Notes
-                                : activate to sort column ascending" style="width: 249px;">学院
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-									 Edit
-								: activate to sort column ascending" style="width: 148px;">
-                                            编辑
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-									 Delete
-								: activate to sort column ascending" style="width: 204px;">
-                                            删除
-                                        </th>
+                                        <th>工号</th>
+                                        <th>姓名</th>
+                                        <th>权限</th>
+                                        <th>学院</th>
+                                        <th>编辑</th>
+                                        <th>删除</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -178,12 +146,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <td>${teacher.get("tname")}</td>
                                             <td>${teacher.get("aname")}</td>
                                             <td>${teacher.get("dname")}</td>
-                                            <td>
-                                                <a class="edit" href="javascript:;">编辑</a>
-                                            </td>
-                                            <td>
-                                                <a class="delete" href="javascript:;">删除</a>
-                                            </td>
+                                            <td><a class="edit" href="javascript:;">编辑</a></td>
+                                            <td><a class="delete" href="javascript:;">删除</a></td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -239,7 +203,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
-<script src="/assets/admin/pages/scripts/table-editable.js"></script>
+<script src="/assets/admin/pages/scripts/table-editable-teacher-info.js"></script>
 <script>
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components
