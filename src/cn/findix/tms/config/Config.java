@@ -37,9 +37,9 @@ public class Config extends JFinalConfig {
         me.add("/", IndexController.class);    // 第三个参数为该Controller的视图存放路径
         me.add("/auth", AuthController.class, "/");            // 第三个参数省略时默认与第一个参数值相同
         me.add("/course", CourseController.class, "/jsp/course");
-        me.add("/teacher", TeacherController.class,"/jsp/teacher");
-        me.add("/syllabus",SyllabusController.class,"/jsp/syllabus");
-        me.add("/schedule",TeachingScheduleController.class,"/jsp/teaching_schedule");
+        me.add("/teacher", TeacherController.class, "/jsp/teacher");
+        me.add("/syllabus", SyllabusController.class, "/jsp/syllabus");
+        me.add("/schedule", TeachingScheduleController.class, "/jsp/teaching_schedule");
     }
 
     /**
@@ -61,7 +61,8 @@ public class Config extends JFinalConfig {
         arp.addMapping("Course", "cid", Course.class);
         arp.addMapping("Syllabus", "cid", Syllabus.class);
         arp.addMapping("TeachingSchedule", "cid", TeachingSchedule.class);
-        arp.addMapping("Department","did",Department.class);
+        arp.addMapping("Department", "did", Department.class);
+        arp.addMapping("Auth", "type", Auth.class);
 
     }
 

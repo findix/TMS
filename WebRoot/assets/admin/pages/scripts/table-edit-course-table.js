@@ -17,8 +17,20 @@ var TableEditable = function () {
         }
 
         function editRow(oTable, nRow) {
-            var department={"上海电力学院":"00","计算机科学与技术学院":"01","电子与信息工程学院":"02","自动化工程学院":"03","外国语学院":"04","电气工程学院":"05","能源与机械工程学院":"06","环境与化学工程学院":"07","经济与管理学院":"08","国际交流学院":"09","数理学院":"10"};
-            var major={"软件工程":"001","信息安全":"002","计算机科学与技术":"003"};
+            var department = {
+                "上海电力学院": "00",
+                "计算机科学与技术学院": "01",
+                "电子与信息工程学院": "02",
+                "自动化工程学院": "03",
+                "外国语学院": "04",
+                "电气工程学院": "05",
+                "能源与机械工程学院": "06",
+                "环境与化学工程学院": "07",
+                "经济与管理学院": "08",
+                "国际交流学院": "09",
+                "数理学院": "10"
+            };
+            var major = {"软件工程": "001", "信息安全": "002", "计算机科学与技术": "003"};
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
             jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '">';
@@ -26,7 +38,7 @@ var TableEditable = function () {
             jqTds[2].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[2] + '">';
             jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
             jqTds[4].innerHTML = '<select name="course.did" class="form-control form-filter input-sm"> <option value="00">上海电力学院</option> <option value="01">计算机科学与技术学院</option> <option value="02">电子与信息工程学院</option> <option value="03">自动化工程学院</option> <option value="04">外国语学院</option> <option value="05">电气工程学院</option> <option value="06">能源与机械工程学院</option> <option value="07">环境与化学工程学院</option> <option value="08">经济与管理学院</option><option value="09">国际交流学院</option> <option value="10">数理学院</option> </select>';
-            jqTds[5].innerHTML = '<select name="course.mid" class="form-control form-filter input-sm"> <option value="1">软件工程</option> <option value="2">信息安全</option> <option value="3">计算机科学与技术</option></select>';
+            jqTds[5].innerHTML = '<select name="course.mid" class="form-control form-filter input-sm"> <option value="001">软件工程</option> <option value="002">信息安全</option> <option value="003">计算机科学与技术</option></select>';
             jqTds[6].innerHTML = '<a class="edit" href="">Save</a>';
             jqTds[7].innerHTML = '<a class="cancel" href="">Cancel</a>';
             $("select", jqTds[4]).val(aData[4] == "" ? "00" : department[(aData[4])]);
@@ -34,10 +46,10 @@ var TableEditable = function () {
         }
 
         function saveRow(oTable, nRow) {
-            var major={
-                "001":"软件工程",
-                "002":"信息安全",
-                "003":"计算机科学与技术"
+            var major = {
+                "001": "软件工程",
+                "002": "信息安全",
+                "003": "计算机科学与技术"
             };
             var department = {
                 "00": "上海电力学院",
@@ -58,10 +70,10 @@ var TableEditable = function () {
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
             oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
             oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-            oTable.fnUpdate(department[jqSelects[1].value], nRow, 4, false);
+            oTable.fnUpdate(department[jqSelects[0].value], nRow, 4, false);
             oTable.fnUpdate(major[jqSelects[1].value], nRow, 5, false);
-            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 6, false);
-            oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 7, false);
+            oTable.fnUpdate('<a class="edit" href="">编辑</a>', nRow, 6, false);
+            oTable.fnUpdate('<a class="delete" href="">删除</a>', nRow, 7, false);
             oTable.fnDraw();
             $.post("/course/saveAndAdd",
                 {
@@ -69,8 +81,8 @@ var TableEditable = function () {
                     "course.cname": jqInputs[1].value,
                     "course.cenglish": jqInputs[2].value,
                     "course.credit": jqInputs[3].value,
-                    "course.did": jqSelects[4].value,
-                    "course.mid": jqSelects[5].value
+                    "course.did": jqSelects[0].value,
+                    "course.mid": jqSelects[1].value
                 }, function (data, status) {
                     //location.reload();
                 });
@@ -92,8 +104,8 @@ var TableEditable = function () {
 
         var oTable = table.dataTable({
             "lengthMenu": [
-                [5, 15, 20, -1],
-                [5, 15, 20, "All"] // change per page values here
+                [10, 15, 20, -1],
+                [10, 15, 20, "All"] // change per page values here
             ],
             // set the initial value
             "pageLength": 10,
@@ -136,12 +148,12 @@ var TableEditable = function () {
                     oTable.fnDeleteRow(nEditing); // cancel
                     nEditing = null;
                     nNew = false;
-                    
+
                     return;
                 }
             }
 
-            var aiNew = oTable.fnAddData(['', '', '', '', '', '']);
+            var aiNew = oTable.fnAddData(['', '', '', '', '', '', '', '']);
             var nRow = oTable.fnGetNodes(aiNew[0]);
             editRow(oTable, nRow);
             nEditing = nRow;
@@ -151,13 +163,19 @@ var TableEditable = function () {
         table.on('click', '.delete', function (e) {
             e.preventDefault();
 
-            if (confirm("Are you sure to delete this row ?") == false) {
+            if (confirm("您确定要删除这条记录吗?") == false) {
                 return;
             }
 
             var nRow = $(this).parents('tr')[0];
+            var jqInputs = $('td', nRow);
+            $.post("/course/delete",
+                {
+                    "course.cid": jqInputs[0].innerHTML
+                }, function (data, status) {
+
+                });
             oTable.fnDeleteRow(nRow);
-            alert("Deleted! Do not forget to do some ajax to sync with backend :)");
         });
 
         table.on('click', '.cancel', function (e) {
@@ -187,7 +205,6 @@ var TableEditable = function () {
                 /* Editing this row and want to save it */
                 saveRow(oTable, nEditing);
                 nEditing = null;
-                alert("Updated! Do not forget to do some ajax to sync with backend :)");
             } else {
                 /* No edit in progress - let's start one */
                 editRow(oTable, nRow);

@@ -65,9 +65,9 @@
                             查看课程信息</a>
                     </li>
                     <li>
-                        <a href="/course/edit">
+                        <a href="/course/upload">
                             <i class="icon-basket"></i>
-                            增加课程信息</a>
+                            上传课程信息</a>
                     </li>
 
                 </ul>

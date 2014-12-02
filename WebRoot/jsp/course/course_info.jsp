@@ -100,6 +100,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <button id="sample_editable_1_new" class="btn green">
                                             新增 <i class="fa fa-plus"></i>
                                         </button>
+                                        <a href="upload" class="btn btn-default">
+                                            上传Excel
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -111,13 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </button>
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a href="#">Print</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Save as PDF</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Export to Excel</a>
+                                                <a  href="javascript:window.print()">打印</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -130,59 +127,25 @@ License: You must have a valid license purchased only from themeforest(the above
                                        id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
                                     <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1"
-                                            rowspan="1" colspan="1" aria-sort="ascending" aria-label="
-                                     Username
-                                : activate to sort column ascending" style="width: 150px;">课号
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-                                     Full Name
-                                : activate to sort column ascending" style="width: 202px;">课程名
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-                                     Points
-                                : activate to sort column ascending" style="width: 461px;">课程英文名
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-                                     Notes
-                                : activate to sort column ascending" style="width: 150px;">学分
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-                                     Notes
-                                : activate to sort column ascending" style="width: 361px;">开课学院
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-                                     Notes
-                                : activate to sort column ascending" style="width: 249px;">适用专业
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-									 Edit
-								: activate to sort column ascending" style="width: 148px;">
-                                            编辑
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1"
-                                            colspan="1" aria-label="
-									 Delete
-								: activate to sort column ascending" style="width: 204px;">
-                                            删除
-                                        </th>
+                                        <th>课号</th>
+                                        <th>课程名</th>
+                                        <th>课程英文名</th>
+                                        <th>学分</th>
+                                        <th>开课学院</th>
+                                        <th>适用专业</th>
+                                        <th>编辑</th>
+                                        <th>删除</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach var="course" items="${courses}">
                                         <tr role="row">
-                                            <td>${course.get("cid")}</td>
-                                            <td>${course.get("cname")}</td>
-                                            <td>${course.get("cenglish")}</td>
-                                            <td>${course.get("credit")}</td>
-                                            <td>${course.get("dname")}</td>
-                                            <td>${course.get("mname")}</td>
+                                            <td>${course.cid}</td>
+                                            <td>${course.cname}</td>
+                                            <td>${course.cenglish}</td>
+                                            <td>${course.credit}</td>
+                                            <td>${course.dname}</td>
+                                            <td>${course.mname}</td>
                                             <td>
                                                 <a class="edit" href="javascript:;">编辑</a>
                                             </td>
@@ -230,7 +193,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="/assets/global/plugins/jquery.cokie.min.js"
             type="text/javascript"></script>
     <script src="/assets/global/plugins/uniform/jquery.uniform.min.js"
-            type="text/javascript"></script>d
+            type="text/javascript"></script>
+    d
     <script src="/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
             type="text/javascript"></script>
     <!-- END CORE PLUGINS -->

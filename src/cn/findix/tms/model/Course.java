@@ -19,11 +19,11 @@ public class Course extends Model<Course> {
     }
 
     public boolean isExisted(String id) {
-        String sql = "select tname from Course where cid=?";
+        String sql = "select cname from Course where cid=?";
         return DAO.findFirst(sql, id) != null;
     }
 
-    public List<Course> findAll(){
+    public List<Course> findMyAll(){
         return find("SELECT course.cid, course.cname, course.cenglish, course.credit, course.did, department.dname, course.mid,major.mname FROM course, department, major WHERE course.did = department.did AND course.mid=major.mid ORDER BY course.cid ASC");
     }
 }
