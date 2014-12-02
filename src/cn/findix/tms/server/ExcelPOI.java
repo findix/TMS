@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
-import cn.findix.tms.model.Auth;
-import cn.findix.tms.model.Department;
-import cn.findix.tms.model.Teacher;
+import cn.findix.tms.model.*;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -88,12 +86,14 @@ public class ExcelPOI {
      * @return Map 包含单元格数据内容的Map对象
      */
     public static boolean readCourseContent(File file) {
-        String tid;
-        String tname;
-        String dname;
+        String cid;
+        String cname;
+        String cenglish;
+        String credit;
         String did;
-        String type;
-        String aname;
+        String mid;
+        String dname;
+        String mname;
 
         try {
             HSSFRow row;
@@ -110,15 +110,17 @@ public class ExcelPOI {
                 row = sheet.getRow(i);
                 // int j = 0;
                 // while (j<colNum) {}
-                tid = getStringCellValue(row.getCell(0)).trim();
-                tname = getStringCellValue(row.getCell(1)).trim();
-                dname = getStringCellValue(row.getCell(2)).trim();
-                aname = getStringCellValue(row.getCell(3)).trim();
+                cid = getStringCellValue(row.getCell(0)).trim();
+                cname = getStringCellValue(row.getCell(1)).trim();
+                cenglish = getStringCellValue(row.getCell(2)).trim();
+                credit = getStringCellValue(row.getCell(3)).trim();
+                dname = getStringCellValue(row.getCell(4)).trim();
+                mname = getStringCellValue(row.getCell(5)).trim();
                 did= Department.DAO.findFirstBy("dname=?",dname).get("did");
-                type= Auth.DAO.findFirstBy("aname=?",aname).get("type");
+                mid= Major.DAO.findFirstBy("mname=?",mname).get("mid");
 
-                if (!Teacher.DAO.isExisted(tid)) {
-                    new Teacher().set("tid", tid).set("tname", tname).set("did", did).set("type", type).set("password","123456").save();
+                if (!Course.DAO.isExisted(cid)) {
+                    new Course().set("cid", cid).set("cname", cname).set("cenglish",cenglish).set("credit",credit).set("did", did).set("mid", mid).save();
                 }
             }
             return true;
