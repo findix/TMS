@@ -74,6 +74,9 @@ public class TeachingScheduleController extends Controller {
         String dest_name=realPath + "/teaching_schedule/" + cid + ".docx";
 
         try {
+            if (!new File(realPath + "/teaching_schedule/").exists()){
+                FileUtil.createDir(realPath + "/teaching_schedule/");
+            }
             FileUtil.copyFile(source_name, dest_name, false);
         } catch (IOException e) {
             e.printStackTrace();
@@ -112,7 +115,10 @@ public class TeachingScheduleController extends Controller {
         String dest_name=realPath + "/teaching_schedule/" + cid + ".docx";
 
         try {
-            FileUtil.copyFile(source_name, dest_name, false);
+            if (!new File(realPath + "/teaching_schedule/").exists()){
+                FileUtil.createDir(realPath + "/teaching_schedule/");
+            }
+            FileUtil.copyFile(source_name,dest_name,false);
         } catch (IOException e) {
             e.printStackTrace();
         }
