@@ -15,12 +15,16 @@ import java.io.File;
 /**
  * Created by Sean on 2014/12/1.
  */
-@Before({StudentInterceptor.class,TeacherInterceptor.class})
+@Before({StudentInterceptor.class, TeacherInterceptor.class})
 public class CourseController extends Controller {
 
     @ClearInterceptor
     public void info() {
-        setAttr("courses", Course.DAO.findMyAll());
+        if ("0".equals(getSessionAttr("type"))) {
+            setAttr("course",Course.DAO.findStudentAll(getSessionAttr("id")+""));
+        } else {
+            setAttr("courses", Course.DAO.findMyAll());
+        }
         render("course_info.jsp");
     }
 
@@ -33,11 +37,11 @@ public class CourseController extends Controller {
             getModel(Course.class).update();
             renderText("SUCCESS");
         } else {
-                getModel(Course.class).save();
-                renderText("SUCCESS");
-            }
-
+            getModel(Course.class).save();
+            renderText("SUCCESS");
         }
+
+    }
 
     public void delete() {
         getModel(Course.class).delete();
