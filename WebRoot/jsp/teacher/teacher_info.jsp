@@ -103,7 +103,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
+                                    <%if ("1".equals(session.getAttribute("type")) || "3".equals(session.getAttribute("type"))) {%>
                                     <button id="sample_editable_1_new" class="btn green">
                                         新增 <i class="fa fa-plus"></i>
                                     </button>
@@ -150,12 +150,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <td>${teacher.aname}</td>
                                         <td>${teacher.dname}</td>
                                         <td>
-                                            <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
+                                            <%if ("1".equals(session.getAttribute("type")) || "3".equals(session.getAttribute("type"))) {%>
                                             <a class="edit" href="javascript:;">编辑</a>
                                             <%}%>
                                         </td>
                                         <td>
-                                            <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
+                                            <%if ("1".equals(session.getAttribute("type")) || "3".equals(session.getAttribute("type"))) {%>
                                             <a class="delete" href="javascript:;">删除</a>
                                             <%}%>
                                         </td>
