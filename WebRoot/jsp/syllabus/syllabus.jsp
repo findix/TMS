@@ -38,9 +38,10 @@ License: You must have a valid license purchased only from themeforest(the above
           rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css">
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/global/plugins/select2/select2.css">
     <link rel="stylesheet" type="text/css"
-          href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css">
+          href="/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css">
     <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN THEME STYLES -->
     <link href="/assets/global/css/components.css" rel="stylesheet"
@@ -53,7 +54,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="/assets/admin/layout/css/custom.css" rel="stylesheet"
           type="text/css"/>
     <!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="../favicon.ico"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -68,20 +69,20 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-header-fixed-mobile page-footer-fixed1">
 <!-- BEGIN HEADER -->
-<%@include file="../../fragments/navbar.jsp" %>
+<%@include file="/fragments/navbar.jsp" %>
 <!-- END HEADER -->
 <div class="clearfix">
 </div>
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
     <!-- BEGIN SIDEBAR -->
-    <%@include file="../../fragments/sidebar.jsp" %>
+    <%@include file="/fragments/sidebar.jsp" %>
     <!-- END SIDEBAR -->
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- BEGIN STYLE CUSTOMIZER -->
-            <%@include file="../../fragments/theme-options.jsp" %>
+            <%@include file="/fragments/theme-options.jsp" %>
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title">
@@ -95,38 +96,63 @@ License: You must have a valid license purchased only from themeforest(the above
                     <%---------------------------------------------%>
                     <%----------------正文从这里开始-----------------%>
                     <%---------------------------------------------%>
-                    <table class="table table-striped table-bordered table-hover dataTable no-footer"
-                           id="sample_2" role="grid" aria-describedby="sample_2_info">
-                        <thead>
-                        <tr role="row">
-                            <th>
-                                课程编号
-                            </th>
-                            <th>
-                                课程名
-                            </th>
-                            <th>
-                                状态
-                            </th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="course" items="${courses}">
-                        <tr class="gradeX" role="row">
-                            <td>${course.cid}</td>
-                            <td>${course.cname}</td>
-                            <td>
-									<span class="label label-sm label-success">
-									未分配 </span>
-                            </td>
-                            <td><a href="" class="btn default btn-xs">分配</a></td>
-                            <td><a href="" class="btn default btn-xs">查看</a></td>
-                            <td><a href="" class="btn default btn-xs">下载</a></td>
-                        </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                    <div class="portlet-body">
+                        <div id="sample_2_wrapper" class="dataTables_wrapper no-footer">
+                            <table class="table table-striped table-bordered table-hover dataTable no-footer"
+                                   id="sample_2" role="grid" aria-describedby="sample_2_info">
+                                <thead>
+                                <tr role="row">
+                                    <th>
+                                        课程编号
+                                    </th>
+                                    <th>
+                                        课程名
+                                    </th>
+                                    <th>
+                                        状态
+                                    </th>
+                                    <th>
+                                        填写人
+                                    </th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="course" items="${courses}">
+                                    <c:if test="${course.status=='已通过'}">
+                                        <tr class="gradeX" role="row">
+                                            <td>${course.cid}</td>
+                                            <td>${course.cname}</td>
+                                            <td id="label">
+                                                <c:if test="${course.status=='未分配'}">
+                                                    <span class="label label-sm label-warning">
+                                                            ${course.status} </span>
+                                                </c:if>
+                                                <c:if test="${course.status=='已指派' || course.status=='已通过'}">
+                                                    <span class="label label-sm label-success">
+                                                            ${course.status} </span>
+                                                </c:if>
+                                                <c:if test="${course.status=='不通过'}">
+                                                    <span class="label label-sm label-danger">
+                                                            ${course.status} </span>
+                                                </c:if>
+                                                <c:if test="${course.status!='未分配' && course.status!='已指派' && course.status!='已通过' && course.status!='不通过'}">
+                                                    <span class="label label-sm label-info">
+                                                            ${course.status} </span>
+                                                </c:if>
+                                            </td>
+                                            <td>${course.tname}</td>
+                                            <td>
+                                                <a href="view/${course.cid}" class="btn default btn-xs">查看</a>
+                                                <a href="download/${course.cid}" class="btn default btn-xs">下载</a>
+                                            </td>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- END PAGE CONTENT-->
@@ -136,7 +162,7 @@ License: You must have a valid license purchased only from themeforest(the above
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
-<%@include file="../../fragments/footer.jsp" %>
+<%@include file="/fragments/footer.jsp" %>
 <!-- END FOOTER -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
@@ -167,6 +193,7 @@ License: You must have a valid license purchased only from themeforest(the above
         type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="/assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="/assets/global/plugins/select2/select2.min.js"></script>
 <script type="text/javascript" src="/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript"
@@ -177,7 +204,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
-<script src="/assets/admin/pages/scripts/table-managed.js"></script>
+<script src="/assets/admin/pages/scripts/table-managed-syllabus.js"></script>
 <script>
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components

@@ -30,7 +30,7 @@ public class AuthController extends Controller {
 //                    教师登录
                     if (Teacher.DAO.isExisted(id, password)) {
                         setSessionAttr("id", id);
-                        setSessionAttr("name", Teacher.DAO.findById(id).getStr("tname"));
+                        setSessionAttr("name", Teacher.DAO.findById(id).getStr("tid"));
                         setSessionAttr("type", Student.DAO.findById(id).getStr("type"));
 //                    redirect("/");
                         renderText("SUCCESS");

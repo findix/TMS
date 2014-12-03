@@ -32,7 +32,7 @@
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
             jqTds[0].innerHTML = '<input name="teacher.tid" type="text" class="form-control input-small" value="' + aData[0] + '">';
-            jqTds[1].innerHTML = '<input name="teacher.tname" type="text" class="form-control input-small" value="' + aData[1] + '">';
+            jqTds[1].innerHTML = '<input name="teacher.tid" type="text" class="form-control input-small" value="' + aData[1] + '">';
             jqTds[2].innerHTML = '<select name="teacher.type" class="form-control form-filter input-sm"> <option value="1">校教务处管理员</option> <option value="2">教学督导组</option> <option value="3">院管理员</option> <option value="4">教师</option></select>';
             jqTds[3].innerHTML = '<select name="teacher.did" class="form-control form-filter input-sm"> <option value="00">上海电力学院</option> <option value="01">计算机科学与技术学院</option> <option value="02">电子与信息工程学院</option> <option value="03">自动化工程学院</option> <option value="04">外国语学院</option> <option value="05">电气工程学院</option> <option value="06">能源与机械工程学院</option> <option value="07">环境与化学工程学院</option> <option value="08">经济与管理学院</option> <option value="09">国际交流学院</option> <option value="10">数理学院</option> </select>';
             jqTds[4].innerHTML = '<a class="edit" href="">Save</a>';
@@ -100,11 +100,11 @@
                 "lengthMenu": " _MENU_ records"
             },
             "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
+                'orderable': false,
+                'targets': [4,5]
             }, {
-                "searchable": true,
-                "targets": [0]
+                "searchable": false,
+                "targets": [4,5]
             }],
             "order": [
                 [0, "asc"]

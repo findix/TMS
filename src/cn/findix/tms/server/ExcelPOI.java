@@ -69,7 +69,7 @@ public class ExcelPOI {
                 type= Auth.DAO.findFirstBy("aname=?",aname).get("type");
 
                 if (!Teacher.DAO.isExisted(tid)) {
-                    new Teacher().set("tid", tid).set("tname", tname).set("did", did).set("type", type).set("password","123456").save();
+                    new Teacher().set("tid", tid).set("tid", tname).set("did", did).set("type", type).set("password","123456").save();
                 }
             }
             return true;

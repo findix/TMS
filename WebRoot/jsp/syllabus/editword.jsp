@@ -47,7 +47,7 @@
 	    }
 	</script>
     <!--**************   卓正 PageOffice 客户端代码结束    ************************-->
-    <div style="width:auto; height:600px;">
+    <div style="width:auto;height: auto">
       <po:PageOfficeCtrl id="PageOfficeCtrl1" />
     </div>
   </body>
