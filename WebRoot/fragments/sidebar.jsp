@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <%}%>
-                    <%if (!"0".equals(session.getAttribute("type"))){%>
+                    <%if (!"0".equals(session.getAttribute("type")) && !"2".equals(session.getAttribute("type"))){%>
                     <li>
                         <a href="/syllabus/write">
                             填写教学大纲
@@ -124,7 +124,7 @@
                             分配教学进度表</a>
                     </li>
                     <%}%>
-                    <%if (!"0".equals(session.getAttribute("type"))){%>
+                    <%if (!"0".equals(session.getAttribute("type")) && !"2".equals(session.getAttribute("type"))){%>
                     <li>
                         <a href="/schedule/write">
                             填写教学进度表</a>
