@@ -201,7 +201,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/assets/admin/layout/scripts/quick-sidebar.js"
         type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
-<script src="/assets/admin/pages/scripts/table-managed-teaching-schedule-write.js"></script>
+<script src="/assets/admin/pages/scripts/table-managed-teaching_schedule-write.js"></script>
 <script>
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components

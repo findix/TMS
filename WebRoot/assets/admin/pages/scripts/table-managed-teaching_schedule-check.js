@@ -56,7 +56,7 @@ var TableManaged = function () {
     });
 
     $("button#pass").click(function () {
-        $.post("/syllabus/status",
+        $.post("/schedule/status",
             {
                 cid: $(this).attr('value'),
                 status:"已通过"
@@ -67,7 +67,7 @@ var TableManaged = function () {
     });
 
     $("button#nopass").click(function(){
-        $.post("/syllabus/status",
+        $.post("/schedule/status",
             {
                 cid: $(this).attr('value'),
                 status:"不通过"

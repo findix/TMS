@@ -75,7 +75,7 @@ public class SyllabusController extends Controller {
         String dest_name=realPath + "/syllabus/" + cid + ".docx";
 
         try {
-            FileUtil.copyDirectory(source_name,dest_name,false);
+            FileUtil.copyFile(source_name, dest_name, false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -133,7 +133,7 @@ public class SyllabusController extends Controller {
     @ClearInterceptor
     public void download() {
         String cid = getPara(0);
-        File downloadFile = new File(PathKit.getWebRootPath() + "/doc/syllabus/"+cid+".xls");
+        File downloadFile = new File(PathKit.getWebRootPath() + "/doc/syllabus/"+cid+".docx");
         renderFile(downloadFile);
     }
 }

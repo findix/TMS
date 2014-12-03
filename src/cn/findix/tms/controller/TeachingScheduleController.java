@@ -1,8 +1,12 @@
 package cn.findix.tms.controller;
 
+import cn.findix.tms.interceptor.StudentInterceptor;
+import cn.findix.tms.interceptor.TeacherInterceptor;
 import cn.findix.tms.model.Course;
 import cn.findix.tms.model.Teacher;
 import cn.findix.tms.server.FileUtil;
+import com.jfinal.aop.Before;
+import com.jfinal.aop.ClearInterceptor;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.PathKit;
 import com.zhuozhengsoft.pageoffice.FileSaver;
@@ -15,21 +19,25 @@ import java.io.IOException;
 /**
  * Created by Long on 2014/12/1.
  */
+@Before(StudentInterceptor.class)
 public class TeachingScheduleController extends Controller {
+    @ClearInterceptor
     public void index() {
-        String sql = "SELECT course.cid, course.cname, course.cenglish, course.credit, course.mid, course.did, course.`tstatus`, course.tid, teacher.tname FROM course INNER JOIN teacher ON course.tid = teacher.tid";
+        String sql = "SELECT course.cid, course.cname, course.cenglish, course.credit, course.mid, course.did, course.`tstatus`, course.tid, teacher.tname FROM course INNER JOIN teacher ON course.ttid = teacher.tid";
         setAttr("courses", Course.DAO.find(sql));
         setAttr("teachers", Teacher.DAO.findAll());
         render("teaching_schedule.jsp");
     }
 
+    @Before(TeacherInterceptor.class)
     public void check() {
-        String sql = "SELECT course.cid, course.cname, course.cenglish, course.credit, course.mid, course.did, course.`tstatus`, course.tid, teacher.tname FROM course INNER JOIN teacher ON course.tid = teacher.tid";
+        String sql = "SELECT course.cid, course.cname, course.cenglish, course.credit, course.mid, course.did, course.`tstatus`, course.tid, teacher.tname FROM course INNER JOIN teacher ON course.ttid = teacher.tid";
         setAttr("courses", Course.DAO.find(sql));
         setAttr("teachers", Teacher.DAO.findAll());
         render("teaching_schedule_check.jsp");
     }
 
+    @Before(TeacherInterceptor.class)
     public void distribution() {
         setAttr("courses", Course.DAO.findAll());
         setAttr("teachers", Teacher.DAO.findAll());
@@ -42,18 +50,19 @@ public class TeachingScheduleController extends Controller {
         render("teaching_schedule_write.jsp");
     }
 
+    @Before(TeacherInterceptor.class)
     public void appoint() {
         String cid = getPara("cid");
         String tid = getPara("tid");
-        Course.DAO.findById(cid).set("tid", Teacher.DAO.findFirstBy("tid=?", tid).get("tid")).update();
+        Course.DAO.findById(cid).set("ttid", Teacher.DAO.findFirstBy("tid=?", tid).get("tid")).update();
         Course.DAO.findById(cid).set("tstatus", "已指派").update();
         renderText("SUCCESS");
     }
 
-    public void tstatus() {
+    public void status() {
         String cid = getPara("cid");
-        String tstatus = getPara("tstatus");
-        Course.DAO.findById(cid).set("tstatus", tstatus).update();
+        String status = getPara("status");
+        Course.DAO.findById(cid).set("tstatus", status).update();
         renderText("SUCCESS");
     }
 
@@ -61,8 +70,8 @@ public class TeachingScheduleController extends Controller {
         String cid = getPara(0);
 
         String realPath=getRequest().getSession().getServletContext().getRealPath("doc/");
-        String source_name=realPath + "/teaching_schedule.doc";
-        String dest_name=realPath + "/teaching_schedule/" + cid + ".doc";
+        String source_name=realPath + "/teaching_schedule.docx";
+        String dest_name=realPath + "/teaching_schedule/" + cid + ".docx";
 
         try {
             FileUtil.copyFile(source_name, dest_name, false);
@@ -94,15 +103,16 @@ public class TeachingScheduleController extends Controller {
         render("savefile.jsp");
     }
 
+    @ClearInterceptor
     public void view() {
         String cid = getPara(0);
 
         String realPath=getRequest().getSession().getServletContext().getRealPath("doc/");
-        String source_name=realPath + "/teaching_schedule_template.docx";
+        String source_name=realPath + "/teaching_schedule.docx";
         String dest_name=realPath + "/teaching_schedule/" + cid + ".docx";
 
         try {
-            FileUtil.copyFile(source_name,dest_name,false);
+            FileUtil.copyFile(source_name, dest_name, false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -119,9 +129,10 @@ public class TeachingScheduleController extends Controller {
         render("editword.jsp");
     }
 
+    @ClearInterceptor
     public void download() {
         String cid = getPara(0);
-        File downloadFile = new File(PathKit.getWebRootPath() + "/doc/teaching_schedule/"+cid+".xls");
+        File downloadFile = new File(PathKit.getWebRootPath() + "/doc/teaching_schedule/"+cid+".docx");
         renderFile(downloadFile);
     }
 }
