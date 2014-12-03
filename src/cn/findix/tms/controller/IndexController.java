@@ -1,19 +1,17 @@
 package cn.findix.tms.controller;
 
+import com.jfinal.aop.ClearInterceptor;
+import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
-import com.zhuozhengsoft.pageoffice.FileSaver;
-import com.zhuozhengsoft.pageoffice.OpenModeType;
-import com.zhuozhengsoft.pageoffice.PageOfficeCtrl;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * IndexController
  */
 public class IndexController extends Controller {
 
-    private boolean noAuth = true;
+    private boolean noAuth = false;
 
+    @ClearInterceptor(ClearLayer.ALL)
     public void index() {
         if (noAuth) {
             setSessionAttr("id", "2000000001");
@@ -21,21 +19,21 @@ public class IndexController extends Controller {
             setSessionAttr("type", 1);
         }
         if (getSessionAttr("id") != null) {
-            int userType = getSessionAttr("type");
+            String userType = getSessionAttr("type");
             switch (userType) {
-                case 0:
+                case "0":
                     render("/jsp/character/student.jsp");
                     break;
-                case 1:
+                case "1":
                     render("/jsp/character/admin.jsp");
                     break;
-                case 2:
+                case "2":
                     render("/jsp/character/supervisor.jsp");
                     break;
-                case 3:
+                case "3":
                     render("/jsp/character/dept_admin.jsp");
                     break;
-                case 4:
+                case "4":
                     render("/jsp/character/teacher.jsp");
                     break;
             }

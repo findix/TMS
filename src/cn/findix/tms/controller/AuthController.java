@@ -2,6 +2,8 @@ package cn.findix.tms.controller;
 
 import cn.findix.tms.model.Student;
 import cn.findix.tms.model.Teacher;
+import com.jfinal.aop.ClearInterceptor;
+import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
 
 /**
@@ -9,6 +11,7 @@ import com.jfinal.core.Controller;
  */
 public class AuthController extends Controller {
 
+    @ClearInterceptor(ClearLayer.ALL)
     public void login() {
         String id = getPara("id");
         String password = getPara("password");
@@ -21,7 +24,7 @@ public class AuthController extends Controller {
                     if (Student.DAO.isExisted(id, password)) {
                         setSessionAttr("id", id);
                         setSessionAttr("name", Student.DAO.findById(id).getStr("sname"));
-                        setSessionAttr("type", 0);
+                        setSessionAttr("type", "0");
 //                    redirect("/");
                         renderText("SUCCESS");
                     }
@@ -30,8 +33,8 @@ public class AuthController extends Controller {
 //                    教师登录
                     if (Teacher.DAO.isExisted(id, password)) {
                         setSessionAttr("id", id);
-                        setSessionAttr("name", Teacher.DAO.findById(id).getStr("tid"));
-                        setSessionAttr("type", Student.DAO.findById(id).getStr("type"));
+                        setSessionAttr("name", Teacher.DAO.findById(id).getStr("tname"));
+                        setSessionAttr("type", Teacher.DAO.findById(id).getStr("type"));
 //                    redirect("/");
                         renderText("SUCCESS");
                     }
@@ -42,6 +45,7 @@ public class AuthController extends Controller {
         }
     }
 
+    @ClearInterceptor(ClearLayer.ALL)
     public void logout() {
         removeSessionAttr("id");
         removeSessionAttr("name");

@@ -96,14 +96,14 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <button id="sample_editable_1_new" class="btn green">
-                                            新增 <i class="fa fa-plus"></i>
-                                        </button>
-                                        <a href="upload" class="btn btn-default">
-                                            上传Excel
-                                        </a>
-                                    </div>
+                                    <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
+                                    <button id="sample_editable_1_new" class="btn green">
+                                        新增 <i class="fa fa-plus"></i>
+                                    </button>
+                                    <a href="upload" class="btn btn-default">
+                                        上传Excel
+                                    </a>
+                                    <%}%>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="btn-group pull-right">
@@ -114,7 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </button>
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a  href="javascript:window.print()">打印</a>
+                                                <a href="javascript:window.print()">打印</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -133,8 +133,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <th>学分</th>
                                         <th>开课学院</th>
                                         <th>适用专业</th>
-                                        <th>编辑</th>
-                                        <th>删除</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -147,11 +147,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <td>${course.dname}</td>
                                             <td>${course.mname}</td>
                                             <td>
+                                                <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
                                                 <a class="edit" href="javascript:;">编辑</a>
+                                                <%}%>
                                             </td>
                                             <td>
+                                                <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
                                                 <a class="delete" href="javascript:;">删除</a>
+                                                <%}%>
                                             </td>
+
                                         </tr>
                                     </c:forEach>
                                     </tbody>

@@ -23,7 +23,11 @@ public class Course extends Model<Course> {
         return DAO.findFirst(sql, id) != null;
     }
 
-    public List<Course> findMyAll(){
+    public List<Course> findMyAll() {
         return find("SELECT course.cid, course.cname, course.cenglish, course.credit, course.did, department.dname, course.mid,major.mname FROM course, department, major WHERE course.did = department.did AND course.mid=major.mid ORDER BY course.cid ASC");
+    }
+
+    public List<Course> findStudentAll(String sid) {
+        return find("SELECT course.cid, course.cname, course.cenglish, course.credit, course.mid, course.did, course.`status`, course.tid, department.dname FROM course INNER JOIN department ON course.did = department.did, student WHERE course.mid = student.mid AND student.sid = ?", sid);
     }
 }
