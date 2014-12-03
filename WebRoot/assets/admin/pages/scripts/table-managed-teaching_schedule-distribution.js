@@ -56,12 +56,12 @@ var TableManaged = function () {
     });
 
     $("#modelSubmit").click(function () {
-        $.post("/teaching_schedule/appoint",
+        $.post("/schedule/appoint",
             {
                 cid: $("#cid").val(),
                 tid: $('#tid').val()
             },
-            function (data, status) {
+            function (data, tstatus) {
             });
         $("#label",$("#"+$("#cid").val())).html('<span class="label label-sm label-success"> 已指派 </span>')
     });

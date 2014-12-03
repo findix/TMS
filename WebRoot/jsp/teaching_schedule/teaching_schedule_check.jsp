@@ -117,26 +117,26 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </thead>
                                 <tbody>
                                 <c:forEach var="course" items="${courses}">
-                                    <c:if test="${course.status!='未分配'}">
+                                    <c:if test="${course.tstatus!='未分配'}">
                                         <tr class="gradeX" role="row">
                                             <td>${course.cid}</td>
                                             <td>${course.cname}</td>
                                             <td id="label">
-                                                <c:if test="${course.status=='未分配'}">
+                                                <c:if test="${course.tstatus=='未分配'}">
                                                     <span class="label label-sm label-warning">
-                                                            ${course.status} </span>
+                                                            ${course.tstatus} </span>
                                                 </c:if>
-                                                <c:if test="${course.status=='已指派' || course.status=='已通过'}">
+                                                <c:if test="${course.tstatus=='已指派' || course.tstatus=='已通过'}">
                                                     <span class="label label-sm label-success">
-                                                            ${course.status} </span>
+                                                            ${course.tstatus} </span>
                                                 </c:if>
-                                                <c:if test="${course.status=='不通过'}">
+                                                <c:if test="${course.tstatus=='不通过'}">
                                                     <span class="label label-sm label-danger">
-                                                            ${course.status} </span>
+                                                            ${course.tstatus} </span>
                                                 </c:if>
-                                                <c:if test="${course.status!='未分配' && course.status!='已指派' && course.status!='已通过' && course.status!='不通过'}">
+                                                <c:if test="${course.tstatus!='未分配' && course.tstatus!='已指派' && course.tstatus!='已通过' && course.tstatus!='不通过'}">
                                                     <span class="label label-sm label-info">
-                                                            ${course.status} </span>
+                                                            ${course.tstatus} </span>
                                                 </c:if>
                                             </td>
                                             <td>${course.tname}</td>

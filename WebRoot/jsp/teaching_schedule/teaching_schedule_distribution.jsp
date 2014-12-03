@@ -231,7 +231,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
-<script src="/assets/admin/pages/scripts/components-dropdowns-taaching_schedule.js"></script>
+<script src="/assets/admin/pages/scripts/components-dropdowns-teaching_schedule.js"></script>
 <script src="/assets/admin/pages/scripts/table-managed-teaching_schedule-distribution.js"></script>
 <script>
     jQuery(document).ready(function () {
