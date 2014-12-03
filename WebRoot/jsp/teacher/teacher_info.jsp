@@ -103,12 +103,14 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
+                                    <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
                                     <button id="sample_editable_1_new" class="btn green">
                                         新增 <i class="fa fa-plus"></i>
                                     </button>
                                     <a href="upload" class="btn btn-default">
                                         上传Excel
                                     </a>
+                                    <%}%>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -136,8 +138,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <th>姓名</th>
                                     <th>权限</th>
                                     <th>学院</th>
-                                    <th>编辑</th>
-                                    <th>删除</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -147,8 +149,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <td>${teacher.tname}</td>
                                         <td>${teacher.aname}</td>
                                         <td>${teacher.dname}</td>
-                                        <td><a class="edit" href="javascript:;">编辑</a></td>
-                                        <td><a class="delete" href="javascript:;">删除</a></td>
+                                        <td>
+                                            <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
+                                            <a class="edit" href="javascript:;">编辑</a>
+                                            <%}%>
+                                        </td>
+                                        <td>
+                                            <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
+                                            <a class="delete" href="javascript:;">删除</a>
+                                            <%}%>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

@@ -115,10 +115,10 @@ var TableEditable = function () {
             },
             "columnDefs": [{ // set default column settings
                 'orderable': false,
-                'targets': [2,3,4,5,6,7]
+                'targets': [6,7]
             }, {
                 "searchable": false,
-                "targets": [2,3,4,5,6,7]
+                "targets": [6,7]
             }],
             "order": [
                 [0, "asc"]

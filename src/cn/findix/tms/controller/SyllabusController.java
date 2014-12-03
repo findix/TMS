@@ -1,8 +1,12 @@
 package cn.findix.tms.controller;
 
+import cn.findix.tms.interceptor.StudentInterceptor;
+import cn.findix.tms.interceptor.TeacherInterceptor;
 import cn.findix.tms.model.Course;
 import cn.findix.tms.model.Teacher;
 import cn.findix.tms.server.FileUtil;
+import com.jfinal.aop.Before;
+import com.jfinal.aop.ClearInterceptor;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.PathKit;
 import com.zhuozhengsoft.pageoffice.FileSaver;
@@ -15,8 +19,10 @@ import java.io.IOException;
 /**
  * Created by Sean on 2014/12/1.
  */
+@Before(StudentInterceptor.class)
 public class SyllabusController extends Controller {
 
+    @ClearInterceptor
     public void index() {
         String sql = "SELECT course.cid, course.cname, course.cenglish, course.credit, course.mid, course.did, course.`status`, course.tid, teacher.tname FROM course INNER JOIN teacher ON course.tid = teacher.tid";
         setAttr("courses", Course.DAO.find(sql));
@@ -24,6 +30,7 @@ public class SyllabusController extends Controller {
         render("syllabus.jsp");
     }
 
+    @Before(TeacherInterceptor.class)
     public void check() {
         String sql = "SELECT course.cid, course.cname, course.cenglish, course.credit, course.mid, course.did, course.`status`, course.tid, teacher.tname FROM course INNER JOIN teacher ON course.tid = teacher.tid";
         setAttr("courses", Course.DAO.find(sql));
@@ -31,6 +38,7 @@ public class SyllabusController extends Controller {
         render("syllabus_check.jsp");
     }
 
+    @Before(TeacherInterceptor.class)
     public void distribution() {
         setAttr("courses", Course.DAO.findAll());
         setAttr("teachers", Teacher.DAO.findAll());
@@ -43,6 +51,7 @@ public class SyllabusController extends Controller {
         render("syllabus_write.jsp");
     }
 
+    @Before(TeacherInterceptor.class)
     public void appoint() {
         String cid = getPara("cid");
         String tid = getPara("tid");
@@ -95,6 +104,7 @@ public class SyllabusController extends Controller {
         render("savefile.jsp");
     }
 
+    @ClearInterceptor
     public void view() {
         String cid = getPara(0);
 
@@ -120,6 +130,7 @@ public class SyllabusController extends Controller {
         render("editword.jsp");
     }
 
+    @ClearInterceptor
     public void download() {
         String cid = getPara(0);
         File downloadFile = new File(PathKit.getWebRootPath() + "/doc/syllabus/"+cid+".xls");
