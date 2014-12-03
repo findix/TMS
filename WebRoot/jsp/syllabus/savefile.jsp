@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%@ page import="com.zhuozhengsoft.pageoffice.*" %>
 <%
     FileSaver fs = (FileSaver) (request.getAttribute("FileSaver"));
@@ -8,10 +8,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <title>SaveFile</title>
+    <title>保存</title>
 </head>
 
 <body>
-<h2><font color=red>${message}</font></h2>
+<div align="center">
+    <h2>${message}</h2>
+</div>
 </body>
 </html>
