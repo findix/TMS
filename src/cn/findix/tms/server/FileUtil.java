@@ -189,5 +189,18 @@ public class FileUtil {
         return isDone;
     }
 
+    /**
+     * 根据路径名创建目录
+     * @param filePath 路径名
+     * @return 当创建目录成功后，返回true,否则返回false.
+     */
+    public static boolean createDir(String filePath) {
+        boolean isDone = false;
+        File file = new File(filePath);
+        if(file.exists())
+            throw new RuntimeException("FileDirectory: "+filePath+" is already exist");
+        isDone = file.mkdirs();
+        return isDone;
+    }
 }
 

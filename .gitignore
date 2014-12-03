@@ -3,7 +3,7 @@ WebRoot/WEB-INF/classes
 *.log
 webRoot/upload/
 WebRoot/doc/syllabus/*
-WebRoot/doc/schedule/*
+WebRoot/doc/teaching_schedule/*
 
 ### Java template
 *.class

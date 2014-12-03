@@ -75,6 +75,9 @@ public class SyllabusController extends Controller {
         String dest_name=realPath + "/syllabus/" + cid + ".docx";
 
         try {
+            if (!new File(realPath + "/syllabus/").exists()){
+                FileUtil.createDir(realPath + "/syllabus/");
+            }
             FileUtil.copyDirectory(source_name,dest_name,false);
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,6 +116,9 @@ public class SyllabusController extends Controller {
         String dest_name=realPath + "/syllabus/" + cid + ".docx";
 
         try {
+            if (!new File(realPath + "/syllabus/").exists()){
+                FileUtil.createDir(realPath + "/syllabus/");
+            }
             FileUtil.copyFile(source_name,dest_name,false);
         } catch (IOException e) {
             e.printStackTrace();
