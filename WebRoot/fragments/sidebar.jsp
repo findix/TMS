@@ -54,19 +54,19 @@
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="icon-basket"></i>
+                    <i class="icon-book-open"></i>
                     <span class="title">课程信息管理</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li>
                         <a href="/course/info">
-                            <i class="icon-home"></i>
+                            <i class="icon-magnifier"></i>
                             查看课程信息</a>
                     </li>
                     <li>
                         <a href="/course/upload">
-                            <i class="icon-basket"></i>
+                            <i class="icon-action-redo"></i>
                             上传课程信息</a>
                     </li>
 
@@ -74,17 +74,19 @@
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="icon-rocket"></i>
+                    <i class="icon-user"></i>
                     <span class="title">教师信息管理</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li>
                         <a href="/teacher/info">
+                            <i class="icon-magnifier"></i>
                            查看教师信息</a>
                     </li>
                     <li>
                         <a href="/teacher/upload">
+                            <i class="icon-action-redo"></i>
                             上传教师信息</a>
                     </li>
                 </ul>
@@ -124,7 +126,7 @@
             <!-- END FRONTEND THEME LINKS -->
             <li>
                 <a href="javascript:;">
-                    <i class="icon-diamond"></i>
+                    <i class="icon-calendar"></i>
                     <span class="title">教学进度表</span>
                     <span class="arrow "></span>
                 </a>
