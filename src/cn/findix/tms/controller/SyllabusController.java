@@ -75,7 +75,7 @@ public class SyllabusController extends Controller {
         String dest_name=realPath + "/syllabus/" + cid + ".docx";
 
         try {
-            FileUtil.copyFile(source_name,dest_name,false);
+            FileUtil.copyDirectory(source_name,dest_name,false);
         } catch (IOException e) {
             e.printStackTrace();
         }
