@@ -9,7 +9,7 @@ import com.jfinal.upload.UploadFile;
 import java.io.File;
 
 /**
- * Created by Sean on 2014/12/1.
+ * Created by Long on 2014/12/1.
  */
 public class CourseController extends Controller {
 

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
@@ -79,33 +80,83 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <h3 class="page-title">
-                模板页面
-                <small>这里放上页面说明</small>
+                教学进度表
+                <small>查看教学进度表</small>
             </h3>
-            <div class="page-bar">
-                <ul class="page-breadcrumb">
-                    <li>
-                        <i class="fa fa-home"></i>
-                        <a href="/">主页</a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                        <a href="#">模板页面</a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                        <a href="#">模板子页面</a>
-                    </li>
-                </ul>
-            </div>
             <!-- END PAGE HEADER-->
             <!-- BEGIN PAGE CONTENT-->
             <div class="row">
-                <div class="col-md-12">
-                    -----------------------------------------
-                    --------------正文从这里开始---------------
-                    -----------------------------------------
-                </div>
+                <%--<div class="col-md-12">--%>
+                    <%---------------------------------------------%>
+                    <%----------------正文从这里开始-----------------%>
+                    <%---------------------------------------------%>
+                    <div class="portlet-body">
+                        <div id="sample_2_wrapper" class="dataTables_wrapper no-footer">
+                            <table class="table table-striped table-bordered table-hover dataTable no-footer"
+                                   id="sample_2" role="grid" aria-describedby="sample_2_info">
+                                <thead>
+                                <tr role="row">
+                                    <th>
+                                        课程编号
+                                    </th>
+                                    <th>
+                                        课程名
+                                    </th>
+                                    <th>
+                                        状态
+                                    </th>
+                                    <th>
+                                        填写人
+                                    </th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="course" items="${courses}">
+                                    <tr class="gradeX" role="row">
+                                        <td>${course.cid}</td>
+                                        <td>${course.cname}</td>
+                                        <td id="label">
+                                            <c:if test="${course.status=='未分配'}">
+                                            <span class="label label-sm label-warning">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                            <c:if test="${course.status=='已指派' || course.status=='已通过'}">
+                                            <span class="label label-sm label-success">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                            <c:if test="${course.status=='不通过'}">
+                                            <span class="label label-sm label-danger">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                            <c:if test="${course.status=='待审核'}">
+                                            <span class="label label-sm label-primary">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                            <c:if test="${course.status!='未分配' && course.status!='已指派' && course.status!='已通过' && course.status!='不通过' && course.status!='待审核'}">
+                                            <span class="label label-sm label-info">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                        </td>
+                                        <td>${sessionScope.name}</td>
+                                        <td>
+                                            <a href="edit/${course.cid}" class="btn default btn-xs">编辑</a>
+                                            <button id="finish" class="btn btn-success btn-xs" value="${course.cid}">
+                                                完成
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+             </div>
             </div>
             <!-- END PAGE CONTENT-->
         </div>
@@ -150,6 +201,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/assets/admin/layout/scripts/quick-sidebar.js"
         type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="/assets/admin/pages/scripts/table-managed-teaching-schedule-write.js"></script>
 <script>
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components
