@@ -141,8 +141,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </td>
                                             <td>${course.tname}</td>
                                             <td>
-                                                <a href="" class="btn default btn-xs">查看</a>
-                                                <a href="" class="btn default btn-xs">下载</a>
+                                                <a href="view/${course.cid}" class="btn default btn-xs">查看</a>
+                                                <a href="download/${course.cid}" class="btn default btn-xs">下载</a>
                                                 <button id="pass" class="btn btn-success btn-xs" value="${course.cid}">
                                                     通过
                                                 </button>

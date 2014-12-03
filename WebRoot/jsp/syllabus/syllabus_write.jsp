@@ -119,18 +119,44 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </thead>
                                 <tbody>
                                 <c:forEach var="course" items="${courses}">
-                                        <tr class="gradeX" role="row">
-                                            <td>${course.cid}</td>
-                                            <td>${course.cname}</td>
-                                            <jsp:include page="status_label.jsp"></jsp:include>
-                                            <td>${sessionScope.name}</td>
-                                            <td>
-                                                <a href="edit/${course.cid}" class="btn default btn-xs">编辑</a>
-                                                <button id="finish" class="btn btn-success btn-xs" value="${course.cid}">
-                                                    完成
-                                                </button>
-                                            </td>
-                                        </tr>
+                                    <tr class="gradeX" role="row">
+                                        <td>${course.cid}</td>
+                                        <td>${course.cname}</td>
+                                        <td id="label">
+                                            <c:if test="${course.status=='未分配'}">
+                                            <span class="label label-sm label-warning">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                            <c:if test="${course.status=='已指派' || course.status=='已通过'}">
+                                            <span class="label label-sm label-success">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                            <c:if test="${course.status=='不通过'}">
+                                            <span class="label label-sm label-danger">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                            <c:if test="${course.status=='待审核'}">
+                                            <span class="label label-sm label-primary">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                            <c:if test="${course.status!='未分配' && course.status!='已指派' && course.status!='已通过' && course.status!='不通过' && course.status!='待审核'}">
+                                            <span class="label label-sm label-info">
+                                                    ${course.status}
+                                            </span>
+                                            </c:if>
+                                        </td>
+                                        <td>${sessionScope.name}</td>
+                                        <td>
+                                            <a href="edit/${course.cid}" class="btn default btn-xs">编辑</a>
+                                            <button id="finish" class="btn btn-success btn-xs" value="${course.cid}">
+                                                完成
+                                            </button>
+                                        </td>
+                                    </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>

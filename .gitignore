@@ -2,6 +2,8 @@
 WebRoot/WEB-INF/classes
 *.log
 webRoot/upload/
+WebRoot/doc/syllabus/
+WebRoot/doc/schedule/
 
 ### Java template
 *.class
