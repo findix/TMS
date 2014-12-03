@@ -88,38 +88,38 @@ License: You must have a valid license purchased only from themeforest(the above
             <div id="myCarousel" class="carousel image-carousel slide">
                 <div class="carousel-inner">
                     <div class="active item">
-                        <img src="../../image/background(1).jpg" class="img-responsive" alt="">
+                        <img src="/image/background(1).jpg" class="img-responsive" alt="">
                         <div class="carousel-caption">
                             <h4>
                                 <a href="page_news_item.html">
-                                    First Thumbnail label </a>
+                                    上海电力学院全景 </a>
                             </h4>
                             <p>
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                <%--Cras justo odio, dapibus ac facilisis in, egestas eget quam.--%>
                             </p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="../../image/background(2).jpg" class="img-responsive" alt="">
+                        <img src="/image/background(2).jpg" class="img-responsive" alt="">
                         <div class="carousel-caption">
                             <h4>
                                 <a href="page_news_item.html">
-                                    Second Thumbnail label </a>
+                                    计算机学院外景 </a>
                             </h4>
                             <p>
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                <%--Cras justo odio, dapibus ac facilisis in, egestas eget quam.--%>
                             </p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="../../image/background(3).jpg" class="img-responsive" alt="">
+                        <img src="/image/background(3).jpg" class="img-responsive" alt="">
                         <div class="carousel-caption">
                             <h4>
                                 <a href="page_news_item.html">
-                                    Third Thumbnail label </a>
+                                    行政楼 </a>
                             </h4>
                             <p>
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                <%--Cras justo odio, dapibus ac facilisis in, egestas eget quam.--%>
                             </p>
                         </div>
                     </div>
