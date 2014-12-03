@@ -55,14 +55,26 @@ var TableManaged = function () {
 
     });
 
-    $("#modelSubmit").click(function () {
-        $.post("/syllabus/appoint",
+    $("button#pass").click(function () {
+        $.post("/syllabus/status",
             {
-                cid: $("#cid").val(),
-                tid: $('#tid').val()
+                cid: $(this).attr('value'),
+                status:"已通过"
             },
             function (data, status) {
             });
+        $("#label",$(this).parent().parent()).html('<span class="label label-sm label-success"> 已通过 </span>')
+    });
+
+    $("button#nopass").click(function(){
+        $.post("/syllabus/status",
+            {
+                cid: $(this).attr('value'),
+                status:"不通过"
+            },
+            function (data, status) {
+            });
+        $("#label",$(this).parent().parent()).html('<span class="label label-sm label-danger"> 不通过 </span>')
     });
 
     return {

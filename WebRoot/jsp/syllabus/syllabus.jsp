@@ -111,25 +111,43 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <th>
                                         状态
                                     </th>
-                                    <th></th>
-                                    <th></th>
+                                    <th>
+                                        填写人
+                                    </th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach var="course" items="${courses}">
-                                    <tr class="gradeX" role="row">
-                                        <td>${course.cid}</td>
-                                        <td>${course.cname}</td>
-                                        <td>
-									<span class="label label-sm label-success">
-									未分配 </span>
-                                        </td>
-                                        <td><a href="" class="btn default btn-xs" data-toggle="modal"
-                                               data-target="#appoint">分配</a></td>
-                                        <td><a href="" class="btn default btn-xs">查看</a></td>
-                                        <td><a href="" class="btn default btn-xs">下载</a></td>
-                                    </tr>
+                                    <c:if test="${course.status=='已通过'}">
+                                        <tr class="gradeX" role="row">
+                                            <td>${course.cid}</td>
+                                            <td>${course.cname}</td>
+                                            <td id="label">
+                                                <c:if test="${course.status=='未分配'}">
+                                                    <span class="label label-sm label-warning">
+                                                            ${course.status} </span>
+                                                </c:if>
+                                                <c:if test="${course.status=='已指派' || course.status=='已通过'}">
+                                                    <span class="label label-sm label-success">
+                                                            ${course.status} </span>
+                                                </c:if>
+                                                <c:if test="${course.status=='不通过'}">
+                                                    <span class="label label-sm label-danger">
+                                                            ${course.status} </span>
+                                                </c:if>
+                                                <c:if test="${course.status!='未分配' && course.status!='已指派' && course.status!='已通过' && course.status!='不通过'}">
+                                                    <span class="label label-sm label-info">
+                                                            ${course.status} </span>
+                                                </c:if>
+                                            </td>
+                                            <td>${course.tname}</td>
+                                            <td>
+                                                <a href="" class="btn default btn-xs">查看</a>
+                                                <a href="" class="btn default btn-xs">下载</a>
+                                            </td>
+                                        </tr>
+                                    </c:if>
                                 </c:forEach>
                                 </tbody>
                             </table>
@@ -140,34 +158,6 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END PAGE CONTENT-->
         </div>
     </div>
-    <%--分配模态框--%>
-    <div class="modal fade" id="appoint" role="basic">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">分配教学大纲</h4>
-                </div>
-                <div class="modal-body">
-                    分配给：
-                    <select id="teacher" class="select2-container form-control input-small">
-                        <option></option>
-                        <c:forEach var="teacher" items="${teachers}">
-                            <option value="${teacher.tid}">${teacher.tname}</option>
-                        </c:forEach>
-                    </select>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn blue">确定</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <%--分配模态框结束--%>
     <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->
@@ -215,7 +205,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
 <script src="/assets/admin/pages/scripts/table-managed-syllabus.js"></script>
-<script src="/assets/admin/pages/scripts/components-dropdowns-syllabus.js"></script>
 <script>
     jQuery(document).ready(function () {
         Metronic.init(); // init metronic core components
@@ -223,7 +212,6 @@ License: You must have a valid license purchased only from themeforest(the above
         QuickSidebar.init(); // init quick sidebar
         Demo.init(); // init demo features
         TableManaged.init();
-        ComponentsDropdowns.init();
     });
 </script>
 <!-- END JAVASCRIPTS -->

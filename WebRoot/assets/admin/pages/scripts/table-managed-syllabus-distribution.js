@@ -20,10 +20,10 @@ var TableManaged = function () {
             },
             "columnDefs": [{  // set default column settings
                 'orderable': false,
-                'targets': [4]
+                'targets': [2, 3]
             }, {
                 "searchable": false,
-                "targets": [4]
+                "targets": [2, 3]
             }],
             "order": [
                 [0, "asc"]
@@ -63,6 +63,7 @@ var TableManaged = function () {
             },
             function (data, status) {
             });
+        $("#label",$("#"+$("#cid").val())).html('<span class="label label-sm label-success"> 已指派 </span>')
     });
 
     return {

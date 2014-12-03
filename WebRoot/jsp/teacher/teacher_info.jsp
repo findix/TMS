@@ -115,8 +115,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="btn-group pull-right">
                                     <button class="btn dropdown-toggle" data-toggle="dropdown">
                                         工具
-                                        <i
-                                                class="fa fa-angle-down"></i>
+                                        <i class="fa fa-angle-down"></i>
                                     </button>
                                     <ul class="dropdown-menu pull-right">
                                         <li>

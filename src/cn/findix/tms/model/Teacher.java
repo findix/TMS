@@ -15,12 +15,12 @@ public class Teacher extends Model<Teacher> {
     }
 
     public boolean isExisted(String id, String password) {
-        String sql = "select tname from Teacher where tid=? and password=?";
+        String sql = "select tid from Teacher where tid=? and password=?";
         return DAO.findFirst(sql, id, password) != null;
     }
 
     public boolean isExisted(String id) {
-        String sql = "select tname from Teacher where tid=?";
+        String sql = "select tid from Teacher where tid=?";
         return DAO.findFirst(sql, id) != null;
     }
 

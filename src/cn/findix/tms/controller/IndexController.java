@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
  */
 public class IndexController extends Controller {
 
-    private boolean noAuth = true;
+    private boolean noAuth = false;
 
     public void index() {
         if (noAuth) {

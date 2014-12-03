@@ -2,7 +2,7 @@ var ComponentsDropdowns = function () {
 
     var handleSelect2 = function () {
 
-        $('#teacher').select2({
+        $('#tid').select2({
             placeholder: "请选择",
             allowClear: true
         });
