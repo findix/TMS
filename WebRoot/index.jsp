@@ -79,19 +79,67 @@ License: You must have a valid license purchased only from themeforest(the above
       <%@include file="fragments/theme-options.jsp" %>
       <!-- END STYLE CUSTOMIZER -->
       <!-- BEGIN PAGE HEADER-->
-      <h3 class="page-title">
-          教学大纲与教学进度表在线管理系统
+      <%--<h3 class="page-title">--%>
+          <%--教学大纲与教学进度表在线管理系统--%>
 
-      </h3>
+      <%--</h3>--%>
       <!-- END PAGE HEADER-->
       <!-- BEGIN PAGE CONTENT-->
-      <div class="row">
-        <div class="col-md-12">
-          -----------------------------------------
-          --------------正文从这里开始---------------
-          -----------------------------------------
-        </div>
-      </div>
+            <div id="myCarousel" class="carousel image-carousel slide">
+                <div class="carousel-inner">
+                    <div class="active item">
+                        <img src="../../image/background(1).jpg" class="img-responsive" alt="">
+                        <div class="carousel-caption">
+                            <h4>
+                                <a href="page_news_item.html">
+                                    First Thumbnail label </a>
+                            </h4>
+                            <p>
+                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../../image/background(2).jpg" class="img-responsive" alt="">
+                        <div class="carousel-caption">
+                            <h4>
+                                <a href="page_news_item.html">
+                                    Second Thumbnail label </a>
+                            </h4>
+                            <p>
+                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../../image/background(3).jpg" class="img-responsive" alt="">
+                        <div class="carousel-caption">
+                            <h4>
+                                <a href="page_news_item.html">
+                                    Third Thumbnail label </a>
+                            </h4>
+                            <p>
+                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <i class="m-icon-big-swapleft m-icon-white"></i>
+                </a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                    <i class="m-icon-big-swapright m-icon-white"></i>
+                </a>
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active">
+                    </li>
+                    <li data-target="#myCarousel" data-slide-to="1">
+                    </li>
+                    <li data-target="#myCarousel" data-slide-to="2">
+                    </li>
+                </ol>
+            </div>
       <!-- END PAGE CONTENT-->
     </div>
   </div>
