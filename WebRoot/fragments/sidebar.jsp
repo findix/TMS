@@ -21,7 +21,7 @@
             </li>
 
             <li>
-                <a href="/;">
+                <a href="/">
                     <i class="icon-home"></i>
                     <span class="title">
                         主页
