@@ -211,7 +211,7 @@ var TableEditable = function () {
                 nEditing = nRow;
             }
         });
-    }
+    };
 
     return {
 
