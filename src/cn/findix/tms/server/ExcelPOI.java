@@ -61,6 +61,9 @@ public class ExcelPOI {
                 row = sheet.getRow(i);
                 // int j = 0;
                 // while (j<colNum) {}
+                if(getStringCellValue(row.getCell((0)))==""){
+                    continue;
+                }
                 tid = getStringCellValue(row.getCell(0)).trim();
                 tname = getStringCellValue(row.getCell(1)).trim();
                 dname = getStringCellValue(row.getCell(2)).trim();
@@ -110,6 +113,9 @@ public class ExcelPOI {
                 row = sheet.getRow(i);
                 // int j = 0;
                 // while (j<colNum) {}
+                if(getStringCellValue(row.getCell((0)))==""){
+                    continue;
+                }
                 cid = getStringCellValue(row.getCell(0)).trim();
                 cname = getStringCellValue(row.getCell(1)).trim();
                 cenglish = getStringCellValue(row.getCell(2)).trim();

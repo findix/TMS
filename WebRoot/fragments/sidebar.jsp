@@ -40,7 +40,7 @@
                             <i class="icon-home"></i>
                             查看课程信息</a>
                     </li>
-                    <%if (session.getAttribute("type") == "1" || session.getAttribute("type") == "3") {%>
+                    <%if ("1".equals(session.getAttribute("type")) || "3".equals(session.getAttribute("type"))) {%>
                         <li>
                             <a href="/course/upload">
                                 <i class="icon-basket"></i>
