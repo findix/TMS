@@ -78,7 +78,7 @@ public class SyllabusController extends Controller {
             if (!new File(realPath + "/syllabus/").exists()){
                 FileUtil.createDir(realPath + "/syllabus/");
             }
-            FileUtil.copyDirectory(source_name,dest_name,false);
+            FileUtil.copyFile(source_name,dest_name,false);
         } catch (IOException e) {
             e.printStackTrace();
         }
